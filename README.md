@@ -9,7 +9,7 @@ Runs on Node.js >= 18 (uses `node:net`, `node:tls`, `node:crypto`, `node:zlib`; 
 
 ## Install
 ```
-npm install github:<your-user>/s7-commplus-ts
+npm install github:giceratops/s7-commplus-ts
 ```
 
 ## Usage
