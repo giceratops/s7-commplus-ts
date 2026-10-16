@@ -26,6 +26,7 @@
     "test": "vitest run",
     "prepublishOnly": "npm run build",
     "example": "tsx examples/driver-test.ts",
+    "browser": "tsx examples/browser.ts",
     "prepare": "npm run build"
   },
   "keywords": [
