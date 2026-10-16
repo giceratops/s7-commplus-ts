@@ -25,7 +25,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "prepublishOnly": "npm run build",
-    "example": "tsx examples/driver-test.ts"
+    "example": "tsx examples/driver-test.ts",
+    "prepare": "npm run build"
   },
   "keywords": [
     "s7",
