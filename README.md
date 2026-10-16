@@ -65,9 +65,12 @@ npm test            # = npx vitest run
   client's sequence numbers, integrity ids, session ids, address sub areas and value types and records deviations.
   The TLS layer is additionally cross-checked against `openssl s_server` (OMS exporter secret, forced cipher suites).
   Needs the `openssl` CLI on the PATH.
+- `test/alarm-browse.test.ts`: `exploreASAlarms` / `getActiveAlarms` (several languages, AS and program alarms, all HmiInfo syntax
+  versions, associated values, error paths) and `CommRessources.readMax` / `readFree` against the mock PLC (`test/mock-plc/alarms.ts`,
+  layouts derived from the C# parsing code).
 - `test/csharp-diff.test.ts` + `tools/c-sharp-net-driver/`: the **original C# driver including its network layer** (compiled
   unmodified for .NET 8, real OpenSSL) was run against the same mock PLC; `recording.json` holds its results and the request
-  PDUs the mock received, and the test requires the TS client to produce the same for 37 scenarios (see the tool's README).
+  PDUs the mock received, and the test requires the TS client to produce the same for 51 scenarios (see the tool's README).
 
 ## Differences from the C# driver
 - Async/Promise API instead of blocking calls; no threads.
@@ -84,6 +87,8 @@ npm test            # = npx vitest run
 - A failing send (socket already closed, TLS handshake failed) is reported at once as `errTCPDataSend` (7) instead of being
   ignored; the C# driver never notices it (`SendS7plusPDUdata` returns its own `m_LastError`), waits for the read timeout and
   reports `errTCPDataReceive` (5).
+- `CommRessources.readMax` / `readFree` check that the PLC value is a `ValueDInt` and throw a `TypeError` otherwise (C#: the
+  unchecked cast throws `InvalidCastException`; without the check the port would silently accept e.g. a `ValueUDInt`).
 - Where the C# network layer hangs or crashes (non-TLS bytes as answer to the ClientHello: `OpenSSLConnector.RunSSL` spins forever;
   an S7+ fragment spread over two TLS records: `ArgumentOutOfRangeException` on the receive thread) the port returns an error / works.
 

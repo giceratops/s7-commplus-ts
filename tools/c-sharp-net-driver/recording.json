@@ -4705,6 +4705,2694 @@
     "writes": [],
     "operatingState": null
    }
+  },
+  "alarms-browse": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "explore-de",
+     "res": 0,
+     "count": 6,
+     "alarms": [
+      "9979413824299663360|<AlarmData>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>1</AlarmClass>\\n<Producer>2</Producer>\\n<GroupId>0</GroupId>\\n<Flags>0</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext>Systemdiagnose</Infotext>\\n<AlarmText>Baugruppe fehlt oder defekt</AlarmText>\\n<AdditionalText1>Steckplatz</AdditionalText1>\\n<AdditionalText2>Rack</AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>3</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9979413824299728896|<AlarmData>\\n<CpuAlarmId>9979413824299728896</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>2</AlarmDomain>\\n<MessageType>3</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>12</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1002</ClientAlarmId>\\n<Priority>9</Priority>\\n<Reserved1>1</Reserved1>\\n<Reserved2>2</Reserved2>\\n<Reserved3>3</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>17</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText>Zugriffsschutz: falsches Passwort</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203037184|<AlarmData>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>3</LidCount>\\n<Lid>65537</Lid>\\n<Lid>65538</Lid>\\n<Lid>65539</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext>Hilfetext zur Motorstörung</Infotext>\\n<AlarmText>Motor überlastet</AlarmText>\\n<AdditionalText1>Zusatz 1</AdditionalText1>\\n<AdditionalText2>Zusatz 2</AdditionalText2>\\n<AdditionalText3>Zusatz 3</AdditionalText3>\\n<AdditionalText4>Zusatz 4</AdditionalText4>\\n<AdditionalText5>Zusatz 5</AdditionalText5>\\n<AdditionalText6>Zusatz 6</AdditionalText6>\\n<AdditionalText7>Zusatz 7</AdditionalText7>\\n<AdditionalText8>Zusatz 8</AdditionalText8>\\n<AdditionalText9>Zusatz 9</AdditionalText9>\\n<UnknownValue1>1</UnknownValue1>\\n<UnknownValue2>2</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203102720|<AlarmData>\\n<CpuAlarmId>9947888631203102720</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>257</AlarmDomain>\\n<MessageType>2</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>9</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>256</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2002</ClientAlarmId>\\n<Priority>1</Priority>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText>Füllstand niedrig</AlarmText>\\n<AdditionalText1>Tank 1</AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272136704|<AlarmData>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>7</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>131073</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext>Zylinder prüfen</Infotext>\\n<AlarmText>Zylinder klemmt</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272202240|<AlarmData>\\n<CpuAlarmId>281479272202240</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>8</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3008</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n"
+     ]
+    },
+    {
+     "step": "explore-en",
+     "res": 0,
+     "count": 6,
+     "alarms": [
+      "9979413824299663360|<AlarmData>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>1</AlarmClass>\\n<Producer>2</Producer>\\n<GroupId>0</GroupId>\\n<Flags>0</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext>System diagnostics</Infotext>\\n<AlarmText>Module missing or defective</AlarmText>\\n<AdditionalText1>Slot</AdditionalText1>\\n<AdditionalText2>Rack</AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>3</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9979413824299728896|<AlarmData>\\n<CpuAlarmId>9979413824299728896</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>2</AlarmDomain>\\n<MessageType>3</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>12</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1002</ClientAlarmId>\\n<Priority>9</Priority>\\n<Reserved1>1</Reserved1>\\n<Reserved2>2</Reserved2>\\n<Reserved3>3</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>17</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText>Access protection: wrong password</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203037184|<AlarmData>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>3</LidCount>\\n<Lid>65537</Lid>\\n<Lid>65538</Lid>\\n<Lid>65539</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext>Help text for the motor fault</Infotext>\\n<AlarmText>Motor overload</AlarmText>\\n<AdditionalText1>Add 1</AdditionalText1>\\n<AdditionalText2>Add 2</AdditionalText2>\\n<AdditionalText3>Add 3</AdditionalText3>\\n<AdditionalText4>Add 4</AdditionalText4>\\n<AdditionalText5>Add 5</AdditionalText5>\\n<AdditionalText6>Add 6</AdditionalText6>\\n<AdditionalText7>Add 7</AdditionalText7>\\n<AdditionalText8>Add 8</AdditionalText8>\\n<AdditionalText9>Add 9</AdditionalText9>\\n<UnknownValue1>1</UnknownValue1>\\n<UnknownValue2>2</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203102720|<AlarmData>\\n<CpuAlarmId>9947888631203102720</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>257</AlarmDomain>\\n<MessageType>2</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>9</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>256</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2002</ClientAlarmId>\\n<Priority>1</Priority>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText>Level low</AlarmText>\\n<AdditionalText1>Tank 1</AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272136704|<AlarmData>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>7</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>131073</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272202240|<AlarmData>\\n<CpuAlarmId>281479272202240</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>8</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3008</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n"
+     ]
+    },
+    {
+     "step": "explore-fr",
+     "res": 0,
+     "count": 6,
+     "alarms": [
+      "9979413824299663360|<AlarmData>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>1</AlarmClass>\\n<Producer>2</Producer>\\n<GroupId>0</GroupId>\\n<Flags>0</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9979413824299728896|<AlarmData>\\n<CpuAlarmId>9979413824299728896</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>2</AlarmDomain>\\n<MessageType>3</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>12</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1002</ClientAlarmId>\\n<Priority>9</Priority>\\n<Reserved1>1</Reserved1>\\n<Reserved2>2</Reserved2>\\n<Reserved3>3</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>17</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203037184|<AlarmData>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>3</LidCount>\\n<Lid>65537</Lid>\\n<Lid>65538</Lid>\\n<Lid>65539</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText>Moteur en surcharge</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203102720|<AlarmData>\\n<CpuAlarmId>9947888631203102720</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>257</AlarmDomain>\\n<MessageType>2</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>9</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>256</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2002</ClientAlarmId>\\n<Priority>1</Priority>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272136704|<AlarmData>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>7</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>131073</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272202240|<AlarmData>\\n<CpuAlarmId>281479272202240</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>8</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3008</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n"
+     ]
+    },
+    {
+     "step": "explore-unknown-language",
+     "res": 196608,
+     "count": 6,
+     "alarms": [
+      "9979413824299663360|<AlarmData>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>1</AlarmClass>\\n<Producer>2</Producer>\\n<GroupId>0</GroupId>\\n<Flags>0</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9979413824299728896|<AlarmData>\\n<CpuAlarmId>9979413824299728896</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>2</AlarmDomain>\\n<MessageType>3</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>12</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1002</ClientAlarmId>\\n<Priority>9</Priority>\\n<Reserved1>1</Reserved1>\\n<Reserved2>2</Reserved2>\\n<Reserved3>3</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>17</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203037184|<AlarmData>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>3</LidCount>\\n<Lid>65537</Lid>\\n<Lid>65538</Lid>\\n<Lid>65539</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203102720|<AlarmData>\\n<CpuAlarmId>9947888631203102720</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>257</AlarmDomain>\\n<MessageType>2</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>9</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>256</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2002</ClientAlarmId>\\n<Priority>1</Priority>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272136704|<AlarmData>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>7</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>131073</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272202240|<AlarmData>\\n<CpuAlarmId>281479272202240</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>8</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3008</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n"
+     ]
+    },
+    {
+     "step": "explore-language-masked",
+     "res": 0,
+     "count": 6,
+     "alarms": [
+      "9979413824299663360|<AlarmData>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>1</AlarmClass>\\n<Producer>2</Producer>\\n<GroupId>0</GroupId>\\n<Flags>0</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext>Systemdiagnose</Infotext>\\n<AlarmText>Baugruppe fehlt oder defekt</AlarmText>\\n<AdditionalText1>Steckplatz</AdditionalText1>\\n<AdditionalText2>Rack</AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>3</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9979413824299728896|<AlarmData>\\n<CpuAlarmId>9979413824299728896</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>2</AlarmDomain>\\n<MessageType>3</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>12</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1002</ClientAlarmId>\\n<Priority>9</Priority>\\n<Reserved1>1</Reserved1>\\n<Reserved2>2</Reserved2>\\n<Reserved3>3</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>17</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText>Zugriffsschutz: falsches Passwort</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203037184|<AlarmData>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>3</LidCount>\\n<Lid>65537</Lid>\\n<Lid>65538</Lid>\\n<Lid>65539</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext>Hilfetext zur Motorstörung</Infotext>\\n<AlarmText>Motor überlastet</AlarmText>\\n<AdditionalText1>Zusatz 1</AdditionalText1>\\n<AdditionalText2>Zusatz 2</AdditionalText2>\\n<AdditionalText3>Zusatz 3</AdditionalText3>\\n<AdditionalText4>Zusatz 4</AdditionalText4>\\n<AdditionalText5>Zusatz 5</AdditionalText5>\\n<AdditionalText6>Zusatz 6</AdditionalText6>\\n<AdditionalText7>Zusatz 7</AdditionalText7>\\n<AdditionalText8>Zusatz 8</AdditionalText8>\\n<AdditionalText9>Zusatz 9</AdditionalText9>\\n<UnknownValue1>1</UnknownValue1>\\n<UnknownValue2>2</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203102720|<AlarmData>\\n<CpuAlarmId>9947888631203102720</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>257</AlarmDomain>\\n<MessageType>2</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>9</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>256</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2002</ClientAlarmId>\\n<Priority>1</Priority>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText>Füllstand niedrig</AlarmText>\\n<AdditionalText1>Tank 1</AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272136704|<AlarmData>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>7</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>131073</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext>Zylinder prüfen</Infotext>\\n<AlarmText>Zylinder klemmt</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272202240|<AlarmData>\\n<CpuAlarmId>281479272202240</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>8</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3008</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n"
+     ]
+    },
+    {
+     "step": "explore-twice",
+     "threw": true
+    },
+    {
+     "step": "read-after",
+     "res": 0,
+     "values": [
+      "ValueDInt <Value type=\"DInt\">42</Value>"
+     ],
+     "errors": [
+      "0"
+     ]
+    },
+    {
+     "step": "disconnect",
+     "sessionId": 0
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56332e310000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000004bb0000000600007a00348a7e0000000101000000030000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 4,
+      "fragments": 1,
+      "hex": "31000004bb0000000700007a0034000000030001010000028165bd33040000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 8,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 5,
+      "fragments": 1,
+      "hex": "31000004bb0000000800007a00348a360407000001000000050000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 9,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 6,
+      "fragments": 1,
+      "hex": "31000004bb0000000900007a00348a7e0000000101000000060000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 10,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 7,
+      "fragments": 1,
+      "hex": "31000004bb0000000a00007a0034000000030001010000028165bd33070000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 11,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 8,
+      "fragments": 1,
+      "hex": "31000004bb0000000b00007a00348a360409000001000000080000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 12,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 9,
+      "fragments": 1,
+      "hex": "31000004bb0000000c00007a00348a7e0000000101000000090000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 13,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 10,
+      "fragments": 1,
+      "hex": "31000004bb0000000d00007a0034000000030001010000028165bd330a0000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 14,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 11,
+      "fragments": 1,
+      "hex": "31000004bb0000000e00007a00348a36040c0000010000000b0000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 15,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 12,
+      "fragments": 1,
+      "hex": "31000004bb0000000f00007a00348a7e00000001010000000c0000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 16,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 13,
+      "fragments": 1,
+      "hex": "31000004bb0000001000007a0034000000030001010000028165bd330d0000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 17,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 14,
+      "fragments": 1,
+      "hex": "31000004bb0000001100007a00348a3604100000010000000e0000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 18,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 15,
+      "fragments": 1,
+      "hex": "31000004bb0000001200007a00348a7e00000001010000000f0000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 19,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 16,
+      "fragments": 1,
+      "hex": "31000004bb0000001300007a0034000000030001010000028165bd33100000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 20,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 17,
+      "fragments": 1,
+      "hex": "31000004bb0000001400007a00348a360407000001000000110000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 21,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 18,
+      "fragments": 1,
+      "hex": "31000004bb0000001500007a00348a7e0000000101000000120000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 22,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 19,
+      "fragments": 1,
+      "hex": "310000054c0000001600007a00340000000001050088d0b880020293760a000004e88969001200000000896a001300896b000400001300000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 23,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004d40000001700007a003400007a0000000004e88969001200000000896a001300896b000400000100000000"
+     }
+    ],
+    "legitimations": [],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "alarms-active": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "active-de",
+     "res": 0,
+     "count": 3,
+     "alarms": [
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Motor</ObjectVariableTypeName>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>-2</SD_1>\\n<SD_2>256</SD_2>\\n<SD_3>True</SD_3>\\n<SD_4>hello</SD_4>\\n<SD_5>3.5</SD_5>\\n<SD_6>AB€</SD_6>\\n<SD_7>4294967295</SD_7>\\n<SD_8>-10</SD_8>\\n<SD_9>4660</SD_9>\\n<SD_10>1.5</SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>41</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1031\">\\n<Infotext>Hilfetext zur Motorstörung</Infotext>\\n<AlarmText>Motor überlastet</AlarmText>\\n<AdditionalText1>Zusatz 1</AdditionalText1>\\n<AdditionalText2>Zusatz 2</AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Module</ObjectVariableTypeName>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<AllStatesInfo>10</AllStatesInfo>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2677</SubtypeId>\\n<SubtypeIdName>Going</SubtypeIdName>\\n<AllStatesInfo>2</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>127</SD_1>\\n<SD_2>X</SD_2>\\n<SD_3>Y</SD_3>\\n<SD_4>65534</SD_4>\\n<SD_5>3735928559</SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:25</Timestamp>\\n<AckTimestamp>11/14/2023 22:13:29</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>42</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1031\">\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Cylinder</ObjectVariableTypeName>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1></SD_1>\\n<SD_2></SD_2>\\n<SD_3></SD_3>\\n<SD_4></SD_4>\\n<SD_5></SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:14:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>43</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1031\">\\n<Infotext>Zylinder prüfen</Infotext>\\n<AlarmText>Zylinder klemmt</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n"
+     ]
+    },
+    {
+     "step": "active-en",
+     "res": 0,
+     "count": 3,
+     "alarms": [
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Motor</ObjectVariableTypeName>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>-2</SD_1>\\n<SD_2>256</SD_2>\\n<SD_3>True</SD_3>\\n<SD_4>hello</SD_4>\\n<SD_5>3.5</SD_5>\\n<SD_6>AB€</SD_6>\\n<SD_7>4294967295</SD_7>\\n<SD_8>-10</SD_8>\\n<SD_9>4660</SD_9>\\n<SD_10>1.5</SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>41</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1033\">\\n<Infotext>Help text for the motor fault</Infotext>\\n<AlarmText>Motor overload</AlarmText>\\n<AdditionalText1>Add 1</AdditionalText1>\\n<AdditionalText2>Add 2</AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Module</ObjectVariableTypeName>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<AllStatesInfo>10</AllStatesInfo>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2677</SubtypeId>\\n<SubtypeIdName>Going</SubtypeIdName>\\n<AllStatesInfo>2</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>127</SD_1>\\n<SD_2>X</SD_2>\\n<SD_3>Y</SD_3>\\n<SD_4>65534</SD_4>\\n<SD_5>3735928559</SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:25</Timestamp>\\n<AckTimestamp>11/14/2023 22:13:29</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>42</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1033\">\\n<Infotext>System diagnostics</Infotext>\\n<AlarmText>Module missing or defective</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Cylinder</ObjectVariableTypeName>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1></SD_1>\\n<SD_2></SD_2>\\n<SD_3></SD_3>\\n<SD_4></SD_4>\\n<SD_5></SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:14:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>43</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1033\">\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n"
+     ]
+    },
+    {
+     "step": "active-fr",
+     "res": 0,
+     "count": 3,
+     "alarms": [
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Motor</ObjectVariableTypeName>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>-2</SD_1>\\n<SD_2>256</SD_2>\\n<SD_3>True</SD_3>\\n<SD_4>hello</SD_4>\\n<SD_5>3.5</SD_5>\\n<SD_6>AB€</SD_6>\\n<SD_7>4294967295</SD_7>\\n<SD_8>-10</SD_8>\\n<SD_9>4660</SD_9>\\n<SD_10>1.5</SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>41</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1036\">\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Module</ObjectVariableTypeName>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<AllStatesInfo>10</AllStatesInfo>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2677</SubtypeId>\\n<SubtypeIdName>Going</SubtypeIdName>\\n<AllStatesInfo>2</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>127</SD_1>\\n<SD_2>X</SD_2>\\n<SD_3>Y</SD_3>\\n<SD_4>65534</SD_4>\\n<SD_5>3735928559</SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:25</Timestamp>\\n<AckTimestamp>11/14/2023 22:13:29</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>42</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1036\">\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Cylinder</ObjectVariableTypeName>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1></SD_1>\\n<SD_2></SD_2>\\n<SD_3></SD_3>\\n<SD_4></SD_4>\\n<SD_5></SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:14:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>43</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1036\">\\n<Infotext></Infotext>\\n<AlarmText>Vérin bloqué</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n"
+     ]
+    },
+    {
+     "step": "active-unknown-language",
+     "res": 0,
+     "count": 3,
+     "alarms": [
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Motor</ObjectVariableTypeName>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>-2</SD_1>\\n<SD_2>256</SD_2>\\n<SD_3>True</SD_3>\\n<SD_4>hello</SD_4>\\n<SD_5>3.5</SD_5>\\n<SD_6>AB€</SD_6>\\n<SD_7>4294967295</SD_7>\\n<SD_8>-10</SD_8>\\n<SD_9>4660</SD_9>\\n<SD_10>1.5</SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>41</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1040\">\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Module</ObjectVariableTypeName>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<AllStatesInfo>10</AllStatesInfo>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2677</SubtypeId>\\n<SubtypeIdName>Going</SubtypeIdName>\\n<AllStatesInfo>2</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>127</SD_1>\\n<SD_2>X</SD_2>\\n<SD_3>Y</SD_3>\\n<SD_4>65534</SD_4>\\n<SD_5>3735928559</SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:25</Timestamp>\\n<AckTimestamp>11/14/2023 22:13:29</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>42</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1040\">\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Cylinder</ObjectVariableTypeName>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1></SD_1>\\n<SD_2></SD_2>\\n<SD_3></SD_3>\\n<SD_4></SD_4>\\n<SD_5></SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:14:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>43</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1040\">\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n"
+     ]
+    },
+    {
+     "step": "alarm-subscribe",
+     "res": 0
+    },
+    {
+     "step": "active-with-subscription",
+     "res": 0,
+     "count": 3,
+     "alarms": [
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Motor</ObjectVariableTypeName>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>-2</SD_1>\\n<SD_2>256</SD_2>\\n<SD_3>True</SD_3>\\n<SD_4>hello</SD_4>\\n<SD_5>3.5</SD_5>\\n<SD_6>AB€</SD_6>\\n<SD_7>4294967295</SD_7>\\n<SD_8>-10</SD_8>\\n<SD_9>4660</SD_9>\\n<SD_10>1.5</SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>41</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1031\">\\n<Infotext>Hilfetext zur Motorstörung</Infotext>\\n<AlarmText>Motor überlastet</AlarmText>\\n<AdditionalText1>Zusatz 1</AdditionalText1>\\n<AdditionalText2>Zusatz 2</AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Module</ObjectVariableTypeName>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<AllStatesInfo>10</AllStatesInfo>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2677</SubtypeId>\\n<SubtypeIdName>Going</SubtypeIdName>\\n<AllStatesInfo>2</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>127</SD_1>\\n<SD_2>X</SD_2>\\n<SD_3>Y</SD_3>\\n<SD_4>65534</SD_4>\\n<SD_5>3735928559</SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:25</Timestamp>\\n<AckTimestamp>11/14/2023 22:13:29</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>42</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1031\">\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Cylinder</ObjectVariableTypeName>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1></SD_1>\\n<SD_2></SD_2>\\n<SD_3></SD_3>\\n<SD_4></SD_4>\\n<SD_5></SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:14:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>43</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1031\">\\n<Infotext>Zylinder prüfen</Infotext>\\n<AlarmText>Zylinder klemmt</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n"
+     ]
+    },
+    {
+     "step": "alarm-unsubscribe",
+     "res": 0
+    },
+    {
+     "step": "disconnect",
+     "sessionId": 0
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56332e310000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000004bb0000000600007a003400000008946b010100000a946e946f9470947194759f6fbd058169bd6d951b030000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 4,
+      "fragments": 1,
+      "hex": "31000004bb0000000700007a003400000008946b010100000a946e946f9470947194759f6fbd058169bd6d951b040000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 8,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 5,
+      "fragments": 1,
+      "hex": "31000004bb0000000800007a003400000008946b010100000a946e946f9470947194759f6fbd058169bd6d951b050000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 9,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 6,
+      "fragments": 1,
+      "hex": "31000004bb0000000900007a003400000008946b010100000a946e946f9470947194759f6fbd058169bd6d951b060000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 2,
+      "functionCode": 1226,
+      "sequenceNumber": 10,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004ca0000000a00007a003400007a010004000000000001a17fffc00187690000a38169001517537562736372697074696f6e5f32313437343637323635a3883a000202a3876a00030000a3876b000900a38810000202a38811000101a3881820040388808480000000a38819000400a3881a000400a3881b000200a3881c000200a3881d0007000aa3881e0003ffffa15101000194660000a381690015125337704472697665725f416c61726d696e67a3876d000203a3946310030a0000000000000000000000000000000000000000a3bc33200301ffffa3bf75200400a3bf6d000101a4946400000008a2a200000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 11,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 7,
+      "fragments": 1,
+      "hex": "31000004bb0000000b00007a003400000008946b010100000a946e946f9470947194759f6fbd058169bd6d951b070000000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 12,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000004d40000000c00007a003400007a0100000004e88969001200000000896a001300896b000400000200000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 13,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000004d40000000d00007a003400007a0000000004e88969001200000000896a001300896b000400000300000000"
+     }
+    ],
+    "legitimations": [],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "alarms-active-none": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "active-de",
+     "res": 0,
+     "count": 0,
+     "alarms": []
+    },
+    {
+     "step": "disconnect",
+     "sessionId": 0
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56332e310000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000004bb0000000600007a003400000008946b010100000a946e946f9470947194759f6fbd058169bd6d951b030000000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004d40000000700007a003400007a0000000004e88969001200000000896a001300896b000400000100000000"
+     }
+    ],
+    "legitimations": [],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "alarms-odd": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "explore-de",
+     "res": 0,
+     "count": 2,
+     "alarms": [
+      "9979413824299663360|<AlarmData>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>1</AlarmClass>\\n<Producer>2</Producer>\\n<GroupId>0</GroupId>\\n<Flags>0</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext>Systemdiagnose</Infotext>\\n<AlarmText>Baugruppe fehlt oder defekt</AlarmText>\\n<AdditionalText1>Steckplatz</AdditionalText1>\\n<AdditionalText2>Rack</AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>3</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9979413824299728896|<AlarmData>\\n<CpuAlarmId>9979413824299728896</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>2</AlarmDomain>\\n<MessageType>3</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>12</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1002</ClientAlarmId>\\n<Priority>9</Priority>\\n<Reserved1>1</Reserved1>\\n<Reserved2>2</Reserved2>\\n<Reserved3>3</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>17</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText>Zugriffsschutz: falsches Passwort</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n"
+     ]
+    },
+    {
+     "step": "explore-log",
+     "lines": [
+      "ExploreASAlarms(): stais is not ValueBlobSparseArray",
+      "ExploreASAlarms(): stais is not ValueBlobSparseArray"
+     ]
+    },
+    {
+     "step": "active-de",
+     "res": 0,
+     "count": 4,
+     "alarms": [
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Motor</ObjectVariableTypeName>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>-2</SD_1>\\n<SD_2>256</SD_2>\\n<SD_3>True</SD_3>\\n<SD_4>hello</SD_4>\\n<SD_5>3.5</SD_5>\\n<SD_6>AB€</SD_6>\\n<SD_7>4294967295</SD_7>\\n<SD_8>-10</SD_8>\\n<SD_9>4660</SD_9>\\n<SD_10>1.5</SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>41</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1031\">\\n<Infotext>Hilfetext zur Motorstörung</Infotext>\\n<AlarmText>Motor überlastet</AlarmText>\\n<AdditionalText1>Zusatz 1</AdditionalText1>\\n<AdditionalText2>Zusatz 2</AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "null",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Module</ObjectVariableTypeName>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<AllStatesInfo>10</AllStatesInfo>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2677</SubtypeId>\\n<SubtypeIdName>Going</SubtypeIdName>\\n<AllStatesInfo>2</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>127</SD_1>\\n<SD_2>X</SD_2>\\n<SD_3>Y</SD_3>\\n<SD_4>65534</SD_4>\\n<SD_5>3735928559</SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:25</Timestamp>\\n<AckTimestamp>11/14/2023 22:13:29</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>42</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1031\">\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Cylinder</ObjectVariableTypeName>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1></SD_1>\\n<SD_2></SD_2>\\n<SD_3></SD_3>\\n<SD_4></SD_4>\\n<SD_5></SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:14:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>43</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1031\">\\n<Infotext>Zylinder prüfen</Infotext>\\n<AlarmText>Zylinder klemmt</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n"
+     ]
+    },
+    {
+     "step": "disconnect",
+     "sessionId": 0
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56332e310000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000004bb0000000600007a00348a7e0000000101000000030000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 4,
+      "fragments": 1,
+      "hex": "31000004bb0000000700007a0034000000030001010000028165bd33040000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 8,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 5,
+      "fragments": 1,
+      "hex": "31000004bb0000000800007a00348a360407000001000000050000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 9,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 6,
+      "fragments": 1,
+      "hex": "31000004bb0000000900007a003400000008946b010100000a946e946f9470947194759f6fbd058169bd6d951b060000000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 10,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004d40000000a00007a003400007a0000000004e88969001200000000896a001300896b000400000100000000"
+     }
+    ],
+    "legitimations": [],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "alarms-notext": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "active-de",
+     "threw": true
+    },
+    {
+     "step": "read-after",
+     "res": 0,
+     "values": [
+      "ValueDInt <Value type=\"DInt\">42</Value>"
+     ],
+     "errors": [
+      "0"
+     ]
+    },
+    {
+     "step": "disconnect",
+     "sessionId": 0
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56332e310000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000004bb0000000600007a003400000008946b010100000a946e946f9470947194759f6fbd058169bd6d951b030000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 4,
+      "fragments": 1,
+      "hex": "310000054c0000000700007a00340000000001050088d0b880020293760a000004e88969001200000000896a001300896b000400000400000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 8,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004d40000000800007a003400007a0000000004e88969001200000000896a001300896b000400000100000000"
+     }
+    ],
+    "legitimations": [],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "alarms-err": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "explore-1-asalarms",
+     "res": 196608,
+     "count": 0,
+     "alarms": []
+    },
+    {
+     "step": "explore-2-program",
+     "res": 196608,
+     "count": 2,
+     "alarms": [
+      "9979413824299663360|<AlarmData>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>1</AlarmClass>\\n<Producer>2</Producer>\\n<GroupId>0</GroupId>\\n<Flags>0</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9979413824299728896|<AlarmData>\\n<CpuAlarmId>9979413824299728896</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>2</AlarmDomain>\\n<MessageType>3</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>12</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1002</ClientAlarmId>\\n<Priority>9</Priority>\\n<Reserved1>1</Reserved1>\\n<Reserved2>2</Reserved2>\\n<Reserved3>3</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>17</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n"
+     ]
+    },
+    {
+     "step": "explore-3-texts",
+     "res": 196608,
+     "count": 6,
+     "alarms": [
+      "9979413824299663360|<AlarmData>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>1</AlarmClass>\\n<Producer>2</Producer>\\n<GroupId>0</GroupId>\\n<Flags>0</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9979413824299728896|<AlarmData>\\n<CpuAlarmId>9979413824299728896</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>2</AlarmDomain>\\n<MessageType>3</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>12</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1002</ClientAlarmId>\\n<Priority>9</Priority>\\n<Reserved1>1</Reserved1>\\n<Reserved2>2</Reserved2>\\n<Reserved3>3</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>17</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203037184|<AlarmData>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>3</LidCount>\\n<Lid>65537</Lid>\\n<Lid>65538</Lid>\\n<Lid>65539</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203102720|<AlarmData>\\n<CpuAlarmId>9947888631203102720</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>257</AlarmDomain>\\n<MessageType>2</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>9</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>256</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2002</ClientAlarmId>\\n<Priority>1</Priority>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272136704|<AlarmData>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>7</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>131073</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272202240|<AlarmData>\\n<CpuAlarmId>281479272202240</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>8</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3008</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n"
+     ]
+    },
+    {
+     "step": "active-1",
+     "res": 196608,
+     "count": 0,
+     "alarms": []
+    },
+    {
+     "step": "active-2",
+     "res": 0,
+     "count": 3,
+     "alarms": [
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Motor</ObjectVariableTypeName>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>-2</SD_1>\\n<SD_2>256</SD_2>\\n<SD_3>True</SD_3>\\n<SD_4>hello</SD_4>\\n<SD_5>3.5</SD_5>\\n<SD_6>AB€</SD_6>\\n<SD_7>4294967295</SD_7>\\n<SD_8>-10</SD_8>\\n<SD_9>4660</SD_9>\\n<SD_10>1.5</SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>41</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1031\">\\n<Infotext>Hilfetext zur Motorstörung</Infotext>\\n<AlarmText>Motor überlastet</AlarmText>\\n<AdditionalText1>Zusatz 1</AdditionalText1>\\n<AdditionalText2>Zusatz 2</AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Module</ObjectVariableTypeName>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<AllStatesInfo>10</AllStatesInfo>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2677</SubtypeId>\\n<SubtypeIdName>Going</SubtypeIdName>\\n<AllStatesInfo>2</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1>127</SD_1>\\n<SD_2>X</SD_2>\\n<SD_3>Y</SD_3>\\n<SD_4>65534</SD_4>\\n<SD_5>3735928559</SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:13:25</Timestamp>\\n<AckTimestamp>11/14/2023 22:13:29</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>42</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1031\">\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n",
+      "<AlarmsDai>\\n<ObjectVariableTypeName>DAI_Cylinder</ObjectVariableTypeName>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<AllStatesInfo>5</AllStatesInfo>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<AsCgs>\\n<AlarmsAsCgs>\\n<SubtypeId>2673</SubtypeId>\\n<SubtypeIdName>Coming</SubtypeIdName>\\n<AllStatesInfo>1</AllStatesInfo>\\n<AssociatedValues>\\n<AlarmsAssociatedValues>\\n<SD_1></SD_1>\\n<SD_2></SD_2>\\n<SD_3></SD_3>\\n<SD_4></SD_4>\\n<SD_5></SD_5>\\n<SD_6></SD_6>\\n<SD_7></SD_7>\\n<SD_8></SD_8>\\n<SD_9></SD_9>\\n<SD_10></SD_10>\\n</AlarmsAssociatedValues>\\n</AssociatedValues>\\n<Timestamp>11/14/2023 22:14:20</Timestamp>\\n<AckTimestamp>01/01/1970 00:00:00</AckTimestamp>\\n</AlarmsAsCgs>\\n</AsCgs>\\n<SequenceCounter>43</SequenceCounter>\\n<AlarmTexts>\\n<AlarmsAlarmTexts LanguageId=\"1031\">\\n<Infotext>Zylinder prüfen</Infotext>\\n<AlarmText>Zylinder klemmt</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n</AlarmsAlarmTexts>\\n</AlarmTexts>\\n</AlarmsDai>\\n"
+     ]
+    },
+    {
+     "step": "explore-4-ok",
+     "res": 0,
+     "count": 6,
+     "alarms": [
+      "9979413824299663360|<AlarmData>\\n<CpuAlarmId>9979413824299663360</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>1</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1001</ClientAlarmId>\\n<Priority>5</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>1</AlarmClass>\\n<Producer>2</Producer>\\n<GroupId>0</GroupId>\\n<Flags>0</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext>Systemdiagnose</Infotext>\\n<AlarmText>Baugruppe fehlt oder defekt</AlarmText>\\n<AdditionalText1>Steckplatz</AdditionalText1>\\n<AdditionalText2>Rack</AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>3</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9979413824299728896|<AlarmData>\\n<CpuAlarmId>9979413824299728896</CpuAlarmId>\\n<RelationId>2323513344\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>2</AlarmDomain>\\n<MessageType>3</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>12</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>257</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>1002</ClientAlarmId>\\n<Priority>9</Priority>\\n<Reserved1>1</Reserved1>\\n<Reserved2>2</Reserved2>\\n<Reserved3>3</Reserved3>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>17</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText>Zugriffsschutz: falsches Passwort</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203037184|<AlarmData>\\n<CpuAlarmId>9947888631203037184</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>1</Alid>\\n<AlarmDomain>256</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2001</ClientAlarmId>\\n<Priority>12</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>3</AlarmClass>\\n<Producer>4</Producer>\\n<GroupId>5</GroupId>\\n<Flags>6</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>3</LidCount>\\n<Lid>65537</Lid>\\n<Lid>65538</Lid>\\n<Lid>65539</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext>Hilfetext zur Motorstörung</Infotext>\\n<AlarmText>Motor überlastet</AlarmText>\\n<AdditionalText1>Zusatz 1</AdditionalText1>\\n<AdditionalText2>Zusatz 2</AdditionalText2>\\n<AdditionalText3>Zusatz 3</AdditionalText3>\\n<AdditionalText4>Zusatz 4</AdditionalText4>\\n<AdditionalText5>Zusatz 5</AdditionalText5>\\n<AdditionalText6>Zusatz 6</AdditionalText6>\\n<AdditionalText7>Zusatz 7</AdditionalText7>\\n<AdditionalText8>Zusatz 8</AdditionalText8>\\n<AdditionalText9>Zusatz 9</AdditionalText9>\\n<UnknownValue1>1</UnknownValue1>\\n<UnknownValue2>2</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "9947888631203102720|<AlarmData>\\n<CpuAlarmId>9947888631203102720</CpuAlarmId>\\n<RelationId>2316173313\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>2</Alid>\\n<AlarmDomain>257</AlarmDomain>\\n<MessageType>2</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>9</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>256</SyntaxId>\\n<Version>2</Version>\\n<ClientAlarmId>2002</ClientAlarmId>\\n<Priority>1</Priority>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText>Füllstand niedrig</AlarmText>\\n<AdditionalText1>Tank 1</AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272136704|<AlarmData>\\n<CpuAlarmId>281479272136704</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>7</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>4</MessageType>\\n<AlarmEnabled>1</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3007</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>1</LidCount>\\n<Lid>131073</Lid>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext>Zylinder prüfen</Infotext>\\n<AlarmText>Zylinder klemmt</AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n",
+      "281479272202240|<AlarmData>\\n<CpuAlarmId>281479272202240</CpuAlarmId>\\n<RelationId>65537\\n</RelationId>\\n<MultipleStai>\\n<AlarmsMultipleStai>\\n<Alid>8</Alid>\\n<AlarmDomain>258</AlarmDomain>\\n<MessageType>1</MessageType>\\n<AlarmEnabled>0</AlarmEnabled>\\n<HmiInfoLength>17</HmiInfoLength>\\n<HmiInfo>\\n<AlarmsHmiInfo>\\n<SyntaxId>258</SyntaxId>\\n<Version>1</Version>\\n<ClientAlarmId>3008</ClientAlarmId>\\n<Priority>3</Priority>\\n<Reserved1>0</Reserved1>\\n<Reserved2>0</Reserved2>\\n<Reserved3>0</Reserved3>\\n<AlarmClass>2</AlarmClass>\\n<Producer>1</Producer>\\n<GroupId>1</GroupId>\\n<Flags>1</Flags>\\n</AlarmsHmiInfo>\\n</HmiInfo>\\n<LidCount>0</LidCount>\\n</AlarmsMultipleStai>\\n</MultipleStai>\\n<AlText>\\n<Infotext></Infotext>\\n<AlarmText></AlarmText>\\n<AdditionalText1></AdditionalText1>\\n<AdditionalText2></AdditionalText2>\\n<AdditionalText3></AdditionalText3>\\n<AdditionalText4></AdditionalText4>\\n<AdditionalText5></AdditionalText5>\\n<AdditionalText6></AdditionalText6>\\n<AdditionalText7></AdditionalText7>\\n<AdditionalText8></AdditionalText8>\\n<AdditionalText9></AdditionalText9>\\n<UnknownValue1>0</UnknownValue1>\\n<UnknownValue2>0</UnknownValue2>\\n</AlText>\\n</AlarmData>\\n"
+     ]
+    },
+    {
+     "step": "disconnect",
+     "sessionId": 0
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56332e310000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000004bb0000000600007a00348a7e0000000101000000030000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 4,
+      "fragments": 1,
+      "hex": "31000004bb0000000700007a00348a7e0000000101000000040000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 8,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 5,
+      "fragments": 1,
+      "hex": "31000004bb0000000800007a0034000000030001010000028165bd33050000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 9,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 6,
+      "fragments": 1,
+      "hex": "31000004bb0000000900007a00348a7e0000000101000000060000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 10,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 7,
+      "fragments": 1,
+      "hex": "31000004bb0000000a00007a0034000000030001010000028165bd33070000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 11,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 8,
+      "fragments": 1,
+      "hex": "31000004bb0000000b00007a00348a360407000001000000080000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 12,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 9,
+      "fragments": 1,
+      "hex": "31000004bb0000000c00007a003400000008946b010100000a946e946f9470947194759f6fbd058169bd6d951b090000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 13,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 10,
+      "fragments": 1,
+      "hex": "31000004bb0000000d00007a003400000008946b010100000a946e946f9470947194759f6fbd058169bd6d951b0a0000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 14,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 11,
+      "fragments": 1,
+      "hex": "31000004bb0000000e00007a00348a7e00000001010000000b0000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 15,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 12,
+      "fragments": 1,
+      "hex": "31000004bb0000000f00007a0034000000030001010000028165bd330c0000000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 16,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 13,
+      "fragments": 1,
+      "hex": "31000004bb0000001000007a00348a3604070000010000000d0000000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 17,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004d40000001100007a003400007a0000000004e88969001200000000896a001300896b000400000100000000"
+     }
+    ],
+    "legitimations": [],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "comm-resources": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "after-connect",
+     "cr": [
+      "<CommRessources>",
+      "<TagsPerReadRequestMax>7</TagsPerReadRequestMax>",
+      "<TagsPerWriteRequestMax>5</TagsPerWriteRequestMax>",
+      "<PlcAttributesMax>10000</PlcAttributesMax>",
+      "<PlcAttributesFree>0</PlcAttributesFree>",
+      "<PlcSubscriptionsMax>32</PlcSubscriptionsMax>",
+      "<PlcSubscriptionsFree>0</PlcSubscriptionsFree>",
+      "<SubscriptionMemoryMax>65536</SubscriptionMemoryMax>",
+      "<SubscriptionMemoryFree>0</SubscriptionMemoryFree>",
+      "</CommRessources>",
+      ""
+     ]
+    },
+    {
+     "step": "read-free",
+     "res": 0,
+     "cr": [
+      "<CommRessources>",
+      "<TagsPerReadRequestMax>7</TagsPerReadRequestMax>",
+      "<TagsPerWriteRequestMax>5</TagsPerWriteRequestMax>",
+      "<PlcAttributesMax>10000</PlcAttributesMax>",
+      "<PlcAttributesFree>10000</PlcAttributesFree>",
+      "<PlcSubscriptionsMax>32</PlcSubscriptionsMax>",
+      "<PlcSubscriptionsFree>32</PlcSubscriptionsFree>",
+      "<SubscriptionMemoryMax>65536</SubscriptionMemoryMax>",
+      "<SubscriptionMemoryFree>65536</SubscriptionMemoryFree>",
+      "</CommRessources>",
+      ""
+     ]
+    },
+    {
+     "step": "read-max",
+     "res": 0,
+     "cr": [
+      "<CommRessources>",
+      "<TagsPerReadRequestMax>7</TagsPerReadRequestMax>",
+      "<TagsPerWriteRequestMax>5</TagsPerWriteRequestMax>",
+      "<PlcAttributesMax>10000</PlcAttributesMax>",
+      "<PlcAttributesFree>10000</PlcAttributesFree>",
+      "<PlcSubscriptionsMax>32</PlcSubscriptionsMax>",
+      "<PlcSubscriptionsFree>32</PlcSubscriptionsFree>",
+      "<SubscriptionMemoryMax>65536</SubscriptionMemoryMax>",
+      "<SubscriptionMemoryFree>65536</SubscriptionMemoryFree>",
+      "</CommRessources>",
+      ""
+     ]
+    },
+    {
+     "step": "subscribe",
+     "res": 0
+    },
+    {
+     "step": "initial-notification",
+     "res": 0
+    },
+    {
+     "step": "read-free-subscribed",
+     "res": 0,
+     "cr": [
+      "<CommRessources>",
+      "<TagsPerReadRequestMax>7</TagsPerReadRequestMax>",
+      "<TagsPerWriteRequestMax>5</TagsPerWriteRequestMax>",
+      "<PlcAttributesMax>10000</PlcAttributesMax>",
+      "<PlcAttributesFree>9998</PlcAttributesFree>",
+      "<PlcSubscriptionsMax>32</PlcSubscriptionsMax>",
+      "<PlcSubscriptionsFree>31</PlcSubscriptionsFree>",
+      "<SubscriptionMemoryMax>65536</SubscriptionMemoryMax>",
+      "<SubscriptionMemoryFree>65152</SubscriptionMemoryFree>",
+      "</CommRessources>",
+      ""
+     ]
+    },
+    {
+     "step": "unsubscribe",
+     "res": 0
+    },
+    {
+     "step": "read-free-unsubscribed",
+     "res": 0,
+     "cr": [
+      "<CommRessources>",
+      "<TagsPerReadRequestMax>7</TagsPerReadRequestMax>",
+      "<TagsPerWriteRequestMax>5</TagsPerWriteRequestMax>",
+      "<PlcAttributesMax>10000</PlcAttributesMax>",
+      "<PlcAttributesFree>10000</PlcAttributesFree>",
+      "<PlcSubscriptionsMax>32</PlcSubscriptionsMax>",
+      "<PlcSubscriptionsFree>32</PlcSubscriptionsFree>",
+      "<SubscriptionMemoryMax>65536</SubscriptionMemoryMax>",
+      "<SubscriptionMemoryFree>65536</SubscriptionMemoryFree>",
+      "</CommRessources>",
+      ""
+     ]
+    },
+    {
+     "step": "disconnect",
+     "sessionId": 0
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56332e310000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "310000054c0000000600007a003400000000030f008149028839000081490288390100814902883902000004e88969001200000000896a001300896b000400000300000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 4,
+      "fragments": 1,
+      "hex": "310000054c0000000700007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000400000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 8,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 5,
+      "fragments": 1,
+      "hex": "31000004bb0000000800007a00340000000300010100010017000004de895f0008088961000400896210042000000000000000000000000000000000000000000000000000000000000000008963001200000a0e0000018169050000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 9,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 6,
+      "fragments": 1,
+      "hex": "310000054c0000000900007a003400000000030f0088d0b88001029376010088d0b88002029376010088d0b8800302937601000004e88969001200000000896a001300896b000400000600000000"
+     },
+     {
+      "kind": "Explore",
+      "version": 2,
+      "functionCode": 1211,
+      "sequenceNumber": 10,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 7,
+      "fragments": 1,
+      "hex": "31000004bb0000000a00007a003400b00001000101000000070000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 2,
+      "functionCode": 1226,
+      "sequenceNumber": 11,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004ca0000000b00007a003400007a010004000000000001a17fffc00187690000a38169001517537562736372697074696f6e5f32313437343637323635a3883a000200a3876a00030000a3876b000900a38810000214a38811000101a38818200412888084800000028880908002010088d0b880010093760b8880908003020088d0b880010093760f01a38819000464a3881b000200a3881c000200a3881d0007000aa3881e0003ffffa3881f000200a200000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 12,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 8,
+      "fragments": 1,
+      "hex": "310000054c0000000c00007a003400000000030f008149028839000081490288390100814902883902000004e88969001200000000896a001300896b000400000800000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 13,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000004d40000000d00007a003400007a0100000004e88969001200000000896a001300896b000400000200000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 14,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 9,
+      "fragments": 1,
+      "hex": "310000054c0000000e00007a003400000000030f008149028839000081490288390100814902883902000004e88969001200000000896a001300896b000400000900000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 15,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000004d40000000f00007a003400007a0000000004e88969001200000000896a001300896b000400000300000000"
+     }
+    ],
+    "legitimations": [],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "comm-resources-err": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "read-free",
+     "res": 0,
+     "cr": [
+      "<CommRessources>",
+      "<TagsPerReadRequestMax>20</TagsPerReadRequestMax>",
+      "<TagsPerWriteRequestMax>20</TagsPerWriteRequestMax>",
+      "<PlcAttributesMax>10000</PlcAttributesMax>",
+      "<PlcAttributesFree>0</PlcAttributesFree>",
+      "<PlcSubscriptionsMax>32</PlcSubscriptionsMax>",
+      "<PlcSubscriptionsFree>32</PlcSubscriptionsFree>",
+      "<SubscriptionMemoryMax>65536</SubscriptionMemoryMax>",
+      "<SubscriptionMemoryFree>65536</SubscriptionMemoryFree>",
+      "</CommRessources>",
+      ""
+     ]
+    },
+    {
+     "step": "disconnect",
+     "sessionId": 0
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56332e310000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "310000054c0000000600007a003400000000030f008149028839000081490288390100814902883902000004e88969001200000000896a001300896b000400000300000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004d40000000700007a003400007a0000000004e88969001200000000896a001300896b000400000100000000"
+     }
+    ],
+    "legitimations": [],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "comm-resources-type": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "read-free",
+     "threw": true
+    },
+    {
+     "step": "read-after",
+     "res": 0,
+     "values": [
+      "ValueDInt <Value type=\"DInt\">42</Value>"
+     ],
+     "errors": [
+      "0"
+     ]
+    },
+    {
+     "step": "disconnect",
+     "sessionId": 0
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56332e310000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "310000054c0000000600007a003400000000030f008149028839000081490288390100814902883902000004e88969001200000000896a001300896b000400000300000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 4,
+      "fragments": 1,
+      "hex": "310000054c0000000700007a00340000000001050088d0b880020293760a000004e88969001200000000896a001300896b000400000400000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 8,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004d40000000800007a003400007a0000000004e88969001200000000896a001300896b000400000100000000"
+     }
+    ],
+    "legitimations": [],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "legit-new-twice": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "legitimate-again",
+     "res": 0
+    },
+    {
+     "step": "read-after",
+     "res": 0,
+     "values": [
+      "ValueDInt <Value type=\"DInt\">42</Value>"
+     ],
+     "errors": [
+      "0"
+     ]
+    },
+    {
+     "step": "disconnect",
+     "sessionId": 0
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56332e310000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000005860000000600007a003400007a00200401822f000004e88969001200000000896a001300896b0004000000010300000000"
+     },
+     {
+      "kind": "SetVariable",
+      "version": 2,
+      "functionCode": 1266,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004f20000000700007a003400007a00018e3600140030<NEW-LOGIN-CIPHERTEXT>000004e88969001200000000896a001300896b00040000000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 8,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 4,
+      "fragments": 1,
+      "hex": "31000005860000000800007a003400007a00200401822f000004e88969001200000000896a001300896b0004000000010400000000"
+     },
+     {
+      "kind": "SetVariable",
+      "version": 2,
+      "functionCode": 1266,
+      "sequenceNumber": 9,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000004f20000000900007a003400007a00018e3600140030<NEW-LOGIN-CIPHERTEXT>000004e88969001200000000896a001300896b00040000000200000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 10,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 5,
+      "fragments": 1,
+      "hex": "310000054c0000000a00007a00340000000001050088d0b880020293760a000004e88969001200000000896a001300896b000400000500000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 11,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000004d40000000b00007a003400007a0000000004e88969001200000000896a001300896b000400000300000000"
+     }
+    ],
+    "legitimations": [
+     {
+      "kind": "new",
+      "challenge": "0b30557a9fc4e90e33587da2c7ec11365b80a5caef14395e83a8cdf2173c6186",
+      "blob": "<NEW-LOGIN-CIPHERTEXT>",
+      "payloadType": 1,
+      "username": "",
+      "password": "68a01427124c0d2b714d330e1ef9015a30c13d56",
+      "ok": true
+     },
+     {
+      "kind": "new",
+      "challenge": "0b30557a9fc4e90e33587da2c7ec11365b80a5caef14395e83a8cdf2173c6186",
+      "blob": "<NEW-LOGIN-CIPHERTEXT>",
+      "payloadType": 1,
+      "username": "",
+      "password": "68a01427124c0d2b714d330e1ef9015a30c13d56",
+      "ok": true
+     }
+    ],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "legit-new-twice-denied": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "legitimate-again",
+     "res": 31522816
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56332e310000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000005860000000600007a003400007a00200401822f000004e88969001200000000896a001300896b0004000000010300000000"
+     },
+     {
+      "kind": "SetVariable",
+      "version": 2,
+      "functionCode": 1266,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004f20000000700007a003400007a00018e3600140030<NEW-LOGIN-CIPHERTEXT>000004e88969001200000000896a001300896b00040000000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 8,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 4,
+      "fragments": 1,
+      "hex": "31000005860000000800007a003400007a00200401822f000004e88969001200000000896a001300896b0004000000010400000000"
+     },
+     {
+      "kind": "SetVariable",
+      "version": 2,
+      "functionCode": 1266,
+      "sequenceNumber": 9,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000004f20000000900007a003400007a00018e3600140030<NEW-LOGIN-CIPHERTEXT>000004e88969001200000000896a001300896b00040000000200000000"
+     }
+    ],
+    "legitimations": [
+     {
+      "kind": "new",
+      "challenge": "0b30557a9fc4e90e33587da2c7ec11365b80a5caef14395e83a8cdf2173c6186",
+      "blob": "<NEW-LOGIN-CIPHERTEXT>",
+      "payloadType": 1,
+      "username": "",
+      "password": "68a01427124c0d2b714d330e1ef9015a30c13d56",
+      "ok": true
+     },
+     {
+      "kind": "new",
+      "challenge": "0b30557a9fc4e90e33587da2c7ec11365b80a5caef14395e83a8cdf2173c6186",
+      "blob": "<NEW-LOGIN-CIPHERTEXT>",
+      "payloadType": 1,
+      "username": "",
+      "password": "3e0b777584d4437efd1e4894cd9b8033c116470f",
+      "ok": false
+     }
+    ],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "legit-new-user-twice": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "legitimate-again",
+     "res": 0
+    },
+    {
+     "step": "read-after",
+     "res": 0,
+     "values": [
+      "ValueDInt <Value type=\"DInt\">42</Value>"
+     ],
+     "errors": [
+      "0"
+     ]
+    },
+    {
+     "step": "disconnect",
+     "sessionId": 0
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56332e310000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000005860000000600007a003400007a00200401822f000004e88969001200000000896a001300896b0004000000010300000000"
+     },
+     {
+      "kind": "SetVariable",
+      "version": 2,
+      "functionCode": 1266,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004f20000000700007a003400007a00018e3600140030<NEW-LOGIN-CIPHERTEXT>000004e88969001200000000896a001300896b00040000000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 8,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 4,
+      "fragments": 1,
+      "hex": "31000005860000000800007a003400007a00200401822f000004e88969001200000000896a001300896b0004000000010400000000"
+     },
+     {
+      "kind": "SetVariable",
+      "version": 2,
+      "functionCode": 1266,
+      "sequenceNumber": 9,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000004f20000000900007a003400007a00018e3600140030<NEW-LOGIN-CIPHERTEXT>000004e88969001200000000896a001300896b00040000000200000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 10,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 5,
+      "fragments": 1,
+      "hex": "310000054c0000000a00007a00340000000001050088d0b880020293760a000004e88969001200000000896a001300896b000400000500000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 11,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000004d40000000b00007a003400007a0000000004e88969001200000000896a001300896b000400000300000000"
+     }
+    ],
+    "legitimations": [
+     {
+      "kind": "new",
+      "challenge": "0b30557a9fc4e90e33587da2c7ec11365b80a5caef14395e83a8cdf2173c6186",
+      "blob": "<NEW-LOGIN-CIPHERTEXT>",
+      "payloadType": 2,
+      "username": "alice",
+      "password": "Wonder!",
+      "ok": true
+     },
+     {
+      "kind": "new",
+      "challenge": "0b30557a9fc4e90e33587da2c7ec11365b80a5caef14395e83a8cdf2173c6186",
+      "blob": "<NEW-LOGIN-CIPHERTEXT>",
+      "payloadType": 2,
+      "username": "alice",
+      "password": "Wonder!",
+      "ok": true
+     }
+    ],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "legit-legacy-twice": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "legitimate-again",
+     "res": 0
+    },
+    {
+     "step": "read-after",
+     "res": 0,
+     "values": [
+      "ValueDInt <Value type=\"DInt\">42</Value>"
+     ],
+     "errors": [
+      "0"
+     ]
+    },
+    {
+     "step": "disconnect",
+     "sessionId": 0
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56322e390000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000005860000000600007a003400007a00200401822f000004e88969001200000000896a001300896b0004000000010300000000"
+     },
+     {
+      "kind": "SetVariable",
+      "version": 2,
+      "functionCode": 1266,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004f20000000700007a003400007a00018230100214f5c31482c243aa904ec9df76a2559628adebfb52000004e88969001200000000896a001300896b00040000000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 8,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 4,
+      "fragments": 1,
+      "hex": "31000005860000000800007a003400007a00200401822f000004e88969001200000000896a001300896b0004000000010400000000"
+     },
+     {
+      "kind": "SetVariable",
+      "version": 2,
+      "functionCode": 1266,
+      "sequenceNumber": 9,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000004f20000000900007a003400007a00018230100214f5c31482c243aa904ec9df76a2559628adebfb52000004e88969001200000000896a001300896b00040000000200000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 10,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 5,
+      "fragments": 1,
+      "hex": "310000054c0000000a00007a00340000000001050088d0b880020293760a000004e88969001200000000896a001300896b000400000500000000"
+     },
+     {
+      "kind": "DeleteObject",
+      "version": 2,
+      "functionCode": 1236,
+      "sequenceNumber": 11,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000004d40000000b00007a003400007a0000000004e88969001200000000896a001300896b000400000300000000"
+     }
+    ],
+    "legitimations": [
+     {
+      "kind": "legacy",
+      "challenge": "0b30557a9fc4e90e33587da2c7ec11365b80a5ca",
+      "blob": "f5c31482c243aa904ec9df76a2559628adebfb52",
+      "payloadType": null,
+      "username": null,
+      "password": null,
+      "ok": true
+     },
+     {
+      "kind": "legacy",
+      "challenge": "0b30557a9fc4e90e33587da2c7ec11365b80a5ca",
+      "blob": "f5c31482c243aa904ec9df76a2559628adebfb52",
+      "payloadType": null,
+      "username": null,
+      "password": null,
+      "ok": true
+     }
+    ],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
+  },
+  "legit-legacy-twice-denied": {
+   "steps": [
+    {
+     "step": "connect",
+     "res": 0
+    },
+    {
+     "step": "legitimate-again",
+     "res": 31522816
+    }
+   ],
+   "mock": {
+    "requests": [
+     {
+      "kind": "InitSsl",
+      "version": 1,
+      "functionCode": 1459,
+      "sequenceNumber": 1,
+      "sessionId": 288,
+      "transportFlags": 48,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005b300000001000001203000000000"
+     },
+     {
+      "kind": "CreateObject",
+      "version": 1,
+      "functionCode": 1226,
+      "sequenceNumber": 2,
+      "sessionId": 288,
+      "transportFlags": 54,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000004ca0000000200000120360000011d00040000000000a1000000d3821f0000a3822c001280c3c901a1000000d3817f0000a2a200000000"
+     },
+     {
+      "kind": "SetMultiVariables",
+      "version": 2,
+      "functionCode": 1346,
+      "sequenceNumber": 3,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": null,
+      "fragments": 1,
+      "hex": "31000005420000000300007a003400007a000101823201001700000132823f00151a313b36455337203531312d31414b30322d304142303b56322e390000000004e88969001200000000896a001300896b0004000000000000"
+     },
+     {
+      "kind": "GetMultiVariables",
+      "version": 2,
+      "functionCode": 1356,
+      "sequenceNumber": 4,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "310000054c0000000400007a003400000000051900814902880d876800814902880d876900814902880d0000814902880d0100814902880d02000004e88969001200000000896a001300896b000400000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 5,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000005860000000500007a003400007a002004018e32000004e88969001200000000896a001300896b0004000000010200000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 6,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 3,
+      "fragments": 1,
+      "hex": "31000005860000000600007a003400007a00200401822f000004e88969001200000000896a001300896b0004000000010300000000"
+     },
+     {
+      "kind": "SetVariable",
+      "version": 2,
+      "functionCode": 1266,
+      "sequenceNumber": 7,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 1,
+      "fragments": 1,
+      "hex": "31000004f20000000700007a003400007a00018230100214f5c31482c243aa904ec9df76a2559628adebfb52000004e88969001200000000896a001300896b00040000000100000000"
+     },
+     {
+      "kind": "GetVarSubstreamed",
+      "version": 2,
+      "functionCode": 1414,
+      "sequenceNumber": 8,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 4,
+      "fragments": 1,
+      "hex": "31000005860000000800007a003400007a00200401822f000004e88969001200000000896a001300896b0004000000010400000000"
+     },
+     {
+      "kind": "SetVariable",
+      "version": 2,
+      "functionCode": 1266,
+      "sequenceNumber": 9,
+      "sessionId": 31232,
+      "transportFlags": 52,
+      "integrityId": 2,
+      "fragments": 1,
+      "hex": "31000004f20000000900007a003400007a00018230100214353b220f1b10aa70ce4635360a7791059a96e2c5000004e88969001200000000896a001300896b00040000000200000000"
+     }
+    ],
+    "legitimations": [
+     {
+      "kind": "legacy",
+      "challenge": "0b30557a9fc4e90e33587da2c7ec11365b80a5ca",
+      "blob": "f5c31482c243aa904ec9df76a2559628adebfb52",
+      "payloadType": null,
+      "username": null,
+      "password": null,
+      "ok": true
+     },
+     {
+      "kind": "legacy",
+      "challenge": "0b30557a9fc4e90e33587da2c7ec11365b80a5ca",
+      "blob": "353b220f1b10aa70ce4635360a7791059a96e2c5",
+      "payloadType": null,
+      "username": null,
+      "password": null,
+      "ok": false
+     }
+    ],
+    "crInfos": [
+     {
+      "localTsap": 1536,
+      "remoteTsap": "SIMATIC-ROOT-HMI"
+     }
+    ],
+    "tls": [
+     {
+      "protocol": "TLSv1.3"
+     }
+    ],
+    "violations": [],
+    "writes": [],
+    "operatingState": null
+   }
   }
  }
 }

@@ -33,6 +33,10 @@ import type { ParsedItemAddress, ParsedRequest } from "./messages.js";
 import { COTP_CR, COTP_DT, S7pAssembler, TpktParser, ccFrame, dtFrame, parseCr, s7pFragments, s7pSystemEventFrame } from "./wire.js";
 import type { S7pPdu, TpktFrame } from "./wire.js";
 import { defaultDbs, defaultStructs, defaultValues, hexU } from "./model.js";
+import {
+  AS_ALARMS_REL, TEXT_LIBRARY_BASE, activeAlarmObjects, alarmProgramObject, asAlarmsObject, defaultAlarmModel, serializeObject, textLibraryObject,
+} from "./alarms.js";
+import type { AlarmModel } from "./alarms.js";
 import type { DbDef, StructDef } from "./model.js";
 
 export const ERR_ADDRESS = 0x8104n; // address does not exist
@@ -77,6 +81,12 @@ export interface MockPlcOptions {
   tls: "ok" | "garbage" | "close";
   /** use a fixed (reproducible) legitimation challenge instead of random bytes */
   fixedChallenge: boolean;
+  /** alarm definitions / texts / active alarms answered by the alarm related Explore requests */
+  alarmModel: AlarmModel;
+  /** LIDs of ObjectRoot/FreeItems that are answered with an error */
+  freeItemsError: number[];
+  /** answer the FreeItems reads with a UDInt instead of the DInt the client expects */
+  freeItemsWrongType: boolean;
 }
 
 export function defaultOptions(): MockPlcOptions {
@@ -97,6 +107,9 @@ export function defaultOptions(): MockPlcOptions {
     initSsl: "ok",
     tls: "ok",
     fixedChallenge: false,
+    alarmModel: defaultAlarmModel(),
+    freeItemsError: [],
+    freeItemsWrongType: false,
   };
 }
 
@@ -225,6 +238,21 @@ export class MockPlc {
     for (let i = 0; i < 4; i++) S7p.encodeUInt32(data, i === 1 ? 0 : 0);
     data.write(new TextEncoder().encode(text));
     for (const c of this.connections) await c.writeApp(s7pSystemEventFrame(data.toArray()));
+  }
+
+  /** value of ObjectRoot/FreeItems/<lid>: free subscriptions, attributes and subscription memory (null = unknown LID) */
+  freeItem(lid: number): PValue | null {
+    if (this.opts.freeItemsError.includes(lid)) return null;
+    let subs = 0;
+    let refs = 0;
+    for (const c of this.connections) {
+      const st = c.subscriptionStats();
+      subs += st.subscriptions;
+      refs += st.references;
+    }
+    const v = lid === 0 ? 32 - subs : lid === 1 ? 10000 - refs : lid === 2 ? 65536 - subs * 256 - refs * 64 : null;
+    if (v === null) return null;
+    return this.opts.freeItemsWrongType ? new ValueUDInt(v) : new ValueDInt(v);
   }
 
   allKeysOfType(): string[] {
@@ -635,6 +663,12 @@ export class PlcConnection {
     return [...this.subs.keys()];
   }
 
+  subscriptionStats(): { subscriptions: number; references: number } {
+    let references = 0;
+    for (const s of this.subs.values()) references += s.refs.size;
+    return { subscriptions: this.subs.size, references };
+  }
+
   subscription(id: number): SubscriptionState | undefined {
     return this.subs.get(id);
   }
@@ -674,6 +708,13 @@ export class PlcConnection {
         errors.set(item, ERR_NO_ACCESS);
         return;
       }
+      if (a.accessArea === Ids.ObjectRoot && a.accessSubArea === Ids.FreeItems && a.lid.length === 1) {
+        const v = this.plc.freeItem(a.lid[0]);
+        if (v) values.set(item, v);
+        else errors.set(item, ERR_ADDRESS);
+        return;
+      }
+      if (a.accessArea === Ids.ObjectRoot && a.accessSubArea !== Ids.SystemLimits) this.plc.violation(`ObjectRoot read with sub area ${a.accessSubArea}`);
       const db = this.dbRidKey(a);
       if (db) {
         if (db.tiRelId === 0) errors.set(item, ERR_ADDRESS);
@@ -882,7 +923,26 @@ export class PlcConnection {
       return b.toArray();
     };
     let ret = 0n;
-    if (req.exploreId === Ids.NativeObjects_thePLCProgram_Rid) {
+    const am = this.plc.opts.alarmModel;
+    if (req.exploreId === AS_ALARMS_REL) {
+      if (req.recursive !== 1 || req.parents !== 0 || req.exploreRequestId !== Ids.None || req.attributes.length !== 0) this.plc.violation("ASAlarms explore parameters");
+      objs.push(ser(asAlarmsObject(am)));
+    } else if (req.exploreId === Ids.NativeObjects_thePLCProgram_Rid && req.attributes.includes(Ids.MultipleSTAI_STAIs)) {
+      if (req.recursive !== 1 || req.parents !== 0 || req.attributes.join() !== [Ids.ObjectVariableTypeParentObject, Ids.MultipleSTAI_STAIs].join()) {
+        this.plc.violation("alarm program explore parameters");
+      }
+      objs.push(ser(alarmProgramObject(am)));
+    } else if (req.exploreId >>> 16 === TEXT_LIBRARY_BASE >>> 16) {
+      if (req.recursive !== 0 || req.parents !== 0) this.plc.violation("text library explore parameters");
+      const lib = textLibraryObject(am, req.exploreId & 0xffff);
+      if (lib) objs.push(ser(lib));
+      else ret = 0x8104n;
+    } else if (req.exploreId === Ids.NativeObjects_theAlarmSubsystem_Rid) {
+      if (req.exploreRequestId !== Ids.AlarmSubsystem_itsUpdateRelevantDAI || req.recursive !== 1 || req.parents !== 0) {
+        this.plc.violation("active alarms explore parameters");
+      }
+      for (const o of activeAlarmObjects(am, req.attributes)) objs.push(ser(o));
+    } else if (req.exploreId === Ids.NativeObjects_thePLCProgram_Rid) {
       if (req.filter) {
         // datablock list filtered by class (Filter struct, InstanceIOf DB_Class_Rid)
         const f = req.filter as ValueStruct;

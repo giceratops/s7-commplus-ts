@@ -16,6 +16,8 @@ import type { MockPlcOptions } from "../mock-plc/MockPlc.js";
 import type { ParsedRequest } from "../mock-plc/messages.js";
 import { AlarmBlobArray, buildAlarmNotification } from "../mock-plc/messages.js";
 import { createHash } from "node:crypto";
+import { AS_ALARMS_REL, defaultAlarmModel } from "../mock-plc/alarms.js";
+import type { AlarmData } from "../../src/index.js";
 
 export type Json = null | boolean | number | string | Json[] | { [k: string]: Json };
 export type Step = { step: string } & { [k: string]: Json };
@@ -37,6 +39,24 @@ const base = { fixedChallenge: true };
 /** the read of "Other.value" after login (the SystemLimits read during connect has another access area) */
 function isDbRead(r: ParsedRequest): boolean {
   return r.kind === "GetMultiVariables" && r.addresses.some((a) => a.accessArea === 0x8a0e0002);
+}
+
+/**
+ * onRequest hook for "alarms-err": fails the 1st, 3rd, 6th and 7th alarm related Explore (the counter restarts with every
+ * session), see the comment at RUN["alarms-err"].
+ */
+function alarmErrHook(): NonNullable<MockPlcOptions["onRequest"]> {
+  let n = 0;
+  return (r) => {
+    if (r.kind === "CreateObject" && r.requestId === Ids.ObjectServerSessionContainer) n = 0;
+    if (r.kind !== "Explore") return undefined;
+    const alarmRelated =
+      r.exploreId === AS_ALARMS_REL || r.exploreId === Ids.NativeObjects_theAlarmSubsystem_Rid || r.exploreId >>> 16 === 0x8a36 ||
+      (r.exploreId === Ids.NativeObjects_thePLCProgram_Rid && r.attributes.includes(Ids.MultipleSTAI_STAIs));
+    if (!alarmRelated) return undefined;
+    n++;
+    return [1, 3, 6, 7].includes(n) ? { error: true } : undefined;
+  };
 }
 
 export const SCENARIOS: Record<string, ScenarioDef> = {
@@ -78,6 +98,23 @@ export const SCENARIOS: Record<string, ScenarioDef> = {
   misc: { plc: { ...base } },
   subscription: { plc: { ...base } },
   alarm: { plc: { ...base } },
+  // ExploreASAlarms / GetActiveAlarms (BrowseAlarms)
+  "alarms-browse": { plc: { ...base } },
+  "alarms-active": { plc: { ...base } },
+  "alarms-active-none": { plc: { ...base, alarmModel: { ...defaultAlarmModel(), active: [] } } },
+  "alarms-odd": { plc: { ...base, alarmModel: { ...defaultAlarmModel(), oddActive: true, userStaisAsPlainBlob: true } } },
+  "alarms-notext": { plc: { ...base, alarmModel: { ...defaultAlarmModel(), omitActiveAttributes: [Ids.DAI_AlarmTexts_Rid] } } },
+  "alarms-err": { plc: { ...base, onRequest: alarmErrHook() } },
+  // CommRessources.ReadMax / ReadFree
+  "comm-resources": { plc: { ...base, tagsPerReadRequestMax: 7, tagsPerWriteRequestMax: 5 } },
+  "comm-resources-err": { plc: { ...base, freeItemsError: [1] } },
+  "comm-resources-type": { plc: { ...base, freeItemsWrongType: true } },
+  // the private legitimateNew / legitimateLegacy called a second time on an authenticated session (rolled OMS key, new challenge)
+  "legit-new-twice": { plc: { ...base, firmware: FW31, password: "pw-123" }, password: "pw-123" },
+  "legit-new-twice-denied": { plc: { ...base, firmware: FW31, password: "pw-123" }, password: "pw-123" },
+  "legit-new-user-twice": { plc: { ...base, firmware: FW31, password: "x", users: new Map([["alice", "Wonder!"]]) }, password: "Wonder!", username: "alice" },
+  "legit-legacy-twice": { plc: { ...base, firmware: FW29, password: "s3cret" }, password: "s3cret" },
+  "legit-legacy-twice-denied": { plc: { ...base, firmware: FW29, password: "s3cret" }, password: "s3cret" },
 };
 
 export interface RunCtx {
@@ -323,7 +360,155 @@ const readwriteFn: Fn = async (ctx, r) => {
     await disc(c, r);
 };
 
+// ---- alarms / comm resources ---------------------------------------------------------------------------------------
+
+const nl = (x: string): string => x.replace(/\r\n/g, "\n").replace(/\n/g, "\\n");
+
+/** the dictionary in enumeration order: "key|ToString()" with the line breaks escaped */
+const alarmLines = (d: Map<bigint, AlarmData>): string[] => [...d].map(([k, v]) => `${k}|${nl(v.toString())}`);
+
+const logLines = (ctx: RunCtx, needle: string): string[] => ctx.log.filter((l) => l.includes(needle));
+
+/** a step whose action may throw (C#: any exception, TS: any rejection) */
+async function guarded(r: Rec, name: string, fn: () => Promise<{ [k: string]: Json }>): Promise<void> {
+  try {
+    r.step(name, await fn());
+  } catch {
+    r.step(name, { threw: true });
+  }
+}
+
+async function exploreStep(c: S7CommPlusConnection, r: Rec, name: string, lang: number, d = new Map<bigint, AlarmData>()): Promise<Map<bigint, AlarmData>> {
+  await guarded(r, name, async () => {
+    const res = await c.exploreASAlarms(d, lang);
+    return { res, count: d.size, alarms: alarmLines(d) };
+  });
+  return d;
+}
+
+async function activeStep(c: S7CommPlusConnection, r: Rec, name: string, lang: number): Promise<void> {
+  await guarded(r, name, async () => {
+    const { res, alarmList } = await c.getActiveAlarms(lang);
+    return { res, count: alarmList.length, alarms: alarmList.map((a) => (a === null ? "null" : nl(a.toString()))) };
+  });
+}
+
+async function readAfter(c: S7CommPlusConnection, r: Rec): Promise<void> {
+  const { res, values, errors } = await c.readValues([new ItemAddress("8A0E0002.A")]);
+  r.step("read-after", { res, values: values.map(describe), errors: errors.map(String) });
+}
+
+const crLines = (cr: { toString(): string }): string[] => nl(cr.toString()).split("\\n");
+
+/** second legitimation on the authenticated session through the private methods (C#: reflection) */
+const legitTwice = (kind: "new" | "legacy", wrong: boolean): Fn => async (ctx, r) => {
+  const c = await connect(ctx, r);
+  if (!c) return;
+  const pw = wrong ? "wrong-2" : ctx.def.password ?? "";
+  const res = kind === "new" ? await c.legitimateNew(pw, ctx.def.username ?? "") : await c.legitimateLegacy(pw);
+  r.step("legitimate-again", { res });
+  if (res !== 0) return; // the driver closed the connection
+  await readAfter(c, r);
+  await disc(c, r);
+};
+
 const RUN: Record<string, Fn> = {
+  "alarms-browse": async (ctx, r) => {
+    const c = await connect(ctx, r);
+    if (!c) return;
+    const de = await exploreStep(c, r, "explore-de", 1031);
+    await exploreStep(c, r, "explore-en", 1033);
+    await exploreStep(c, r, "explore-fr", 1036);
+    await exploreStep(c, r, "explore-unknown-language", 1040);
+    await exploreStep(c, r, "explore-language-masked", 0x10000 + 1031);
+    await exploreStep(c, r, "explore-twice", 1031, de); // Dictionary.Add of an existing key throws
+    await readAfter(c, r);
+    await disc(c, r);
+  },
+  "alarms-active": async (ctx, r) => {
+    const c = await connect(ctx, r);
+    if (!c) return;
+    await activeStep(c, r, "active-de", 1031);
+    await activeStep(c, r, "active-en", 1033);
+    await activeStep(c, r, "active-fr", 1036);
+    await activeStep(c, r, "active-unknown-language", 1040);
+    r.step("alarm-subscribe", { res: await c.alarmSubscriptionCreate() });
+    await activeStep(c, r, "active-with-subscription", 1031);
+    r.step("alarm-unsubscribe", { res: await c.alarmSubscriptionDelete() });
+    await disc(c, r);
+  },
+  "alarms-active-none": async (ctx, r) => {
+    const c = await connect(ctx, r);
+    if (!c) return;
+    await activeStep(c, r, "active-de", 1031);
+    await disc(c, r);
+  },
+  "alarms-odd": async (ctx, r) => {
+    const c = await connect(ctx, r);
+    if (!c) return;
+    ctx.log.length = 0;
+    await exploreStep(c, r, "explore-de", 1031);
+    r.step("explore-log", { lines: logLines(ctx, "ExploreASAlarms()") });
+    await activeStep(c, r, "active-de", 1031);
+    await disc(c, r);
+  },
+  "alarms-notext": async (ctx, r) => {
+    const c = await connect(ctx, r);
+    if (!c) return;
+    await activeStep(c, r, "active-de", 1031);
+    await readAfter(c, r);
+    await disc(c, r);
+  },
+  // the 1st, 3rd, 6th and 7th alarm explore are answered with an error response:
+  // run 1 fails at ASAlarms (explore 1), run 2 at the program (explore 3), run 3 at the texts (explore 6), GetActiveAlarms 4 fails (7)
+  "alarms-err": async (ctx, r) => {
+    const c = await connect(ctx, r);
+    if (!c) return;
+    await exploreStep(c, r, "explore-1-asalarms", 1031);
+    await exploreStep(c, r, "explore-2-program", 1031);
+    await exploreStep(c, r, "explore-3-texts", 1031);
+    await activeStep(c, r, "active-1", 1031);
+    await activeStep(c, r, "active-2", 1031);
+    await exploreStep(c, r, "explore-4-ok", 1031);
+    await disc(c, r);
+  },
+  "comm-resources": async (ctx, r) => {
+    const c = await connect(ctx, r);
+    if (!c) return;
+    const cr = c.commResources;
+    r.step("after-connect", { cr: crLines(cr) });
+    r.step("read-free", { res: await cr.readFree(c), cr: crLines(cr) });
+    r.step("read-max", { res: await cr.readMax(c), cr: crLines(cr) });
+    const t1 = (await tag(c, r, "TestDB.counter")) as PlcTagInt;
+    const t2 = (await tag(c, r, "TestDB.samples[1]")) as PlcTagInt;
+    r.step("subscribe", { res: await c.subscriptionCreate([t1, t2], 100) });
+    r.step("initial-notification", { res: await c.testWaitForVariableChangeNotifications(1) });
+    r.step("read-free-subscribed", { res: await cr.readFree(c), cr: crLines(cr) });
+    r.step("unsubscribe", { res: await c.subscriptionDelete() });
+    r.step("read-free-unsubscribed", { res: await cr.readFree(c), cr: crLines(cr) });
+    await disc(c, r);
+  },
+  "comm-resources-err": async (ctx, r) => {
+    const c = await connect(ctx, r);
+    if (!c) return;
+    const cr = c.commResources;
+    r.step("read-free", { res: await cr.readFree(c), cr: crLines(cr) });
+    await disc(c, r);
+  },
+  "comm-resources-type": async (ctx, r) => {
+    const c = await connect(ctx, r);
+    if (!c) return;
+    const cr = c.commResources;
+    await guarded(r, "read-free", async () => ({ res: await cr.readFree(c), cr: crLines(cr) }));
+    await readAfter(c, r);
+    await disc(c, r);
+  },
+  "legit-new-twice": legitTwice("new", false),
+  "legit-new-twice-denied": legitTwice("new", true),
+  "legit-new-user-twice": legitTwice("new", false),
+  "legit-legacy-twice": legitTwice("legacy", false),
+  "legit-legacy-twice-denied": legitTwice("legacy", true),
+
   browse: browseFn,
   "browse-coalesced": browseFn,
   "browse-split": browseFn,

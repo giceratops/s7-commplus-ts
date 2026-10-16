@@ -6,9 +6,17 @@
 import { ItemAddress } from "../clientapi/ItemAddress.js";
 import type { S7CommPlusConnection } from "../S7CommPlusConnection.js";
 import { Ids } from "./Ids.js";
-import type { ValueDInt } from "./PValue.js";
+import { ValueDInt } from "./PValue.js";
 
 const NL = "\n";
+
+/** C#: `((ValueDInt)values[i]).GetValue()` throws InvalidCastException for any other value type. */
+function castDInt(v: unknown): number {
+  if (!(v instanceof ValueDInt)) {
+    throw new TypeError("Unable to cast object of type '" + (v as object).constructor.name + "' to type 'ValueDInt'.");
+  }
+  return v.getValue();
+}
 
 export class CommRessources {
   tagsPerReadRequestMax = 20;
@@ -51,7 +59,7 @@ export class CommRessources {
     const { res, values, errors } = await conn.readValues(readlist);
     for (let i = 0; i < values.length; i++) {
       if (values[i] != null && errors[i] === 0n) {
-        const v = (values[i] as ValueDInt).getValue();
+        const v = castDInt(values[i]);
         switch (i) {
           case 0:
             this.tagsPerReadRequestMax = v;
@@ -89,7 +97,7 @@ export class CommRessources {
     const { res, values, errors } = await conn.readValues(readlist);
     for (let i = 0; i < values.length; i++) {
       if (values[i] != null && errors[i] === 0n) {
-        const v = (values[i] as ValueDInt).getValue();
+        const v = castDInt(values[i]);
         switch (i) {
           case 0:
             this.plcSubscriptionsFree = v;

@@ -307,6 +307,199 @@ static class Program
         Disc(c);
     }
 
+
+    // ---- alarms / comm resources (twins of the RUN entries in test/csharp-diff/scenarios.ts) ----
+
+    static string Nl(string x) => x.Replace("\r\n", "\n").Replace("\n", "\\n");
+
+    static List<string> AlarmLines(Dictionary<ulong, AlarmData> d) => d.Select(kv => kv.Key + "|" + Nl(kv.Value.ToString())).ToList();
+
+    static List<string> CrLines(CommRessources cr) => Nl(cr.ToString()).Split("\\n").ToList();
+
+    static void Guarded(string name, Func<object[]> fn)
+    {
+        try
+        {
+            var kv = fn();
+            Step(name, kv);
+        }
+        catch (Exception)
+        {
+            Step(name, "threw", true);
+        }
+    }
+
+    static Dictionary<ulong, AlarmData> ExploreStep(S7CommPlusConnection c, string name, int lang, Dictionary<ulong, AlarmData> d = null)
+    {
+        d = d ?? new Dictionary<ulong, AlarmData>();
+        Guarded(name, () =>
+        {
+            int res = c.ExploreASAlarms(ref d, lang);
+            return new object[] { "res", res, "count", d.Count, "alarms", AlarmLines(d) };
+        });
+        return d;
+    }
+
+    static void ActiveStep(S7CommPlusConnection c, string name, int lang)
+    {
+        Guarded(name, () =>
+        {
+            int res = c.GetActiveAlarms(out var list, lang);
+            return new object[] { "res", res, "count", list.Count, "alarms", list.Select(a => a == null ? "null" : Nl(a.ToString())).ToList() };
+        });
+    }
+
+    static void ReadAfter(S7CommPlusConnection c)
+    {
+        int res = c.ReadValues(new List<ItemAddress> { new ItemAddress("8A0E0002.A") }, out var values, out var errors);
+        Step("read-after", "res", res, "values", values.Select(Describe).ToList(), "errors", errors.Select(e => e.ToString()).ToList());
+    }
+
+    static List<string> LogLines(string needle)
+    {
+        string log;
+        lock (captured) log = captured.ToString();
+        return log.Split('\n').Where(l => l.Contains(needle)).ToList();
+    }
+
+    static void ScAlarmsBrowse()
+    {
+        var c = Connect();
+        if (c == null) return;
+        var de = ExploreStep(c, "explore-de", 1031);
+        ExploreStep(c, "explore-en", 1033);
+        ExploreStep(c, "explore-fr", 1036);
+        ExploreStep(c, "explore-unknown-language", 1040);
+        ExploreStep(c, "explore-language-masked", 0x10000 + 1031);
+        ExploreStep(c, "explore-twice", 1031, de);
+        ReadAfter(c);
+        Disc(c);
+    }
+
+    static void ScAlarmsActive()
+    {
+        var c = Connect();
+        if (c == null) return;
+        ActiveStep(c, "active-de", 1031);
+        ActiveStep(c, "active-en", 1033);
+        ActiveStep(c, "active-fr", 1036);
+        ActiveStep(c, "active-unknown-language", 1040);
+        Step("alarm-subscribe", "res", c.AlarmSubscriptionCreate());
+        ActiveStep(c, "active-with-subscription", 1031);
+        Step("alarm-unsubscribe", "res", c.AlarmSubscriptionDelete());
+        Disc(c);
+    }
+
+    static void ScAlarmsActiveNone()
+    {
+        var c = Connect();
+        if (c == null) return;
+        ActiveStep(c, "active-de", 1031);
+        Disc(c);
+    }
+
+    static void ScAlarmsOdd()
+    {
+        var c = Connect();
+        if (c == null) return;
+        lock (captured) captured.Clear();
+        ExploreStep(c, "explore-de", 1031);
+        Step("explore-log", "lines", LogLines("ExploreASAlarms()"));
+        ActiveStep(c, "active-de", 1031);
+        Disc(c);
+    }
+
+    static void ScAlarmsNotext()
+    {
+        var c = Connect();
+        if (c == null) return;
+        ActiveStep(c, "active-de", 1031);
+        ReadAfter(c);
+        Disc(c);
+    }
+
+    static void ScAlarmsErr()
+    {
+        var c = Connect();
+        if (c == null) return;
+        ExploreStep(c, "explore-1-asalarms", 1031);
+        ExploreStep(c, "explore-2-program", 1031);
+        ExploreStep(c, "explore-3-texts", 1031);
+        ActiveStep(c, "active-1", 1031);
+        ActiveStep(c, "active-2", 1031);
+        ExploreStep(c, "explore-4-ok", 1031);
+        Disc(c);
+    }
+
+    static void ScCommResources()
+    {
+        var c = Connect();
+        if (c == null) return;
+        var cr = Priv<CommRessources>(c, "m_CommRessources");
+        Step("after-connect", "cr", CrLines(cr));
+        int res = cr.ReadFree(c);
+        Step("read-free", "res", res, "cr", CrLines(cr));
+        res = cr.ReadMax(c);
+        Step("read-max", "res", res, "cr", CrLines(cr));
+        var t1 = (PlcTagInt)Tag(c, "TestDB.counter");
+        var t2 = (PlcTagInt)Tag(c, "TestDB.samples[1]");
+        Step("subscribe", "res", c.SubscriptionCreate(new List<PlcTag> { t1, t2 }, 100));
+        Step("initial-notification", "res", c.TestWaitForVariableChangeNotifications(1));
+        res = cr.ReadFree(c);
+        Step("read-free-subscribed", "res", res, "cr", CrLines(cr));
+        Step("unsubscribe", "res", c.SubscriptionDelete());
+        res = cr.ReadFree(c);
+        Step("read-free-unsubscribed", "res", res, "cr", CrLines(cr));
+        Disc(c);
+    }
+
+    static void ScCommResourcesErr()
+    {
+        var c = Connect();
+        if (c == null) return;
+        var cr = Priv<CommRessources>(c, "m_CommRessources");
+        int res = cr.ReadFree(c);
+        Step("read-free", "res", res, "cr", CrLines(cr));
+        Disc(c);
+    }
+
+    static void ScCommResourcesType()
+    {
+        var c = Connect();
+        if (c == null) return;
+        var cr = Priv<CommRessources>(c, "m_CommRessources");
+        Guarded("read-free", () =>
+        {
+            int res = cr.ReadFree(c);
+            return new object[] { "res", res, "cr", CrLines(cr) };
+        });
+        ReadAfter(c);
+        Disc(c);
+    }
+
+    // second legitimation on the authenticated session through the private methods
+    static void ScLegitTwice(bool legacy, bool wrong)
+    {
+        var c = Connect();
+        if (c == null) return;
+        string pw = wrong ? "wrong-2" : password;
+        int res;
+        if (legacy)
+        {
+            var m = typeof(S7CommPlusConnection).GetMethod("legitimateLegacy", BindingFlags.NonPublic | BindingFlags.Instance);
+            res = (int)m.Invoke(c, new object[] { pw });
+        }
+        else
+        {
+            var m = typeof(S7CommPlusConnection).GetMethod("legitimateNew", BindingFlags.NonPublic | BindingFlags.Instance);
+            res = (int)m.Invoke(c, new object[] { pw, username });
+        }
+        Step("legitimate-again", "res", res);
+        if (res != 0) return;
+        ReadAfter(c);
+        Disc(c);
+    }
+
     static int Main(string[] args)
     {
         // ToString() dumps of the driver (DateTime, float, ...) depend on the current culture; the port emulates the invariant one
@@ -339,6 +532,17 @@ static class Program
                 case "misc": ScMisc(); break;
                 case "subscription": ScSubscription(); break;
                 case "alarm": ScAlarm(); break;
+                case "alarms-browse": ScAlarmsBrowse(); break;
+                case "alarms-active": ScAlarmsActive(); break;
+                case "alarms-active-none": ScAlarmsActiveNone(); break;
+                case "alarms-odd": ScAlarmsOdd(); break;
+                case "alarms-notext": ScAlarmsNotext(); break;
+                case "alarms-err": ScAlarmsErr(); break;
+                case "comm-resources": ScCommResources(); break;
+                case "comm-resources-err": ScCommResourcesErr(); break;
+                case "comm-resources-type": ScCommResourcesType(); break;
+                case "legit-new-twice": case "legit-new-twice-denied": case "legit-new-user-twice": ScLegitTwice(false, baseName.EndsWith("denied")); break;
+                case "legit-legacy-twice": case "legit-legacy-twice-denied": ScLegitTwice(true, baseName.EndsWith("denied")); break;
                 default: throw new Exception("unknown scenario " + scenario);
             }
         }

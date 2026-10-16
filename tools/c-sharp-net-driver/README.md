@@ -29,12 +29,18 @@ npx vitest run test/csharp-diff.test.ts
 Scenarios: connect/disconnect, legitimation (legacy, new, new with user name, both denied, unprotected PLC, no password
 on a protected PLC), browse (+ variants with differently framed answers), symbol resolution, read/write of many tag
 types (incl. a 2000 byte fragmented write, per-item errors), read/write chunking by SystemLimits, comments + operating
-state, subscription with change notifications and credit limit extension, alarm subscription + alarm notification, and
+state, subscription with change notifications and credit limit extension, alarm subscription + alarm notification, alarm browsing / active alarms / comm resources, and
 17 error paths (refused, COTP, InitSsl, TLS, CreateObject, SetMultiVariables, dropped / failed / closed reads, unanswered
 DeleteObject).
 
-Not covered: `ExploreASAlarms` / `GetActiveAlarms` (BrowseAlarms) and `CommRessources.ReadFree`, because the mock PLC
-does not implement those requests.
+Also covered: `ExploreASAlarms` / `GetActiveAlarms` (`alarms-*`: the mock PLC answers the AS-alarm, program-alarm, text library
+and active-alarm explores in several languages, incl. odd answers, missing attributes and error responses),
+`CommRessources.ReadMax` / `ReadFree` (`comm-resources*`; the C# connection only calls `ReadMax` during connect, `ReadFree` is
+invoked through the private `m_CommRessources` field) and a second `legitimateNew` / `legitimateLegacy` on an authenticated
+session (`legit-*-twice*`: the private methods are invoked by reflection; rolled OMS key, new challenge, denied second login).
+
+Not covered: the time dependent parts of the real PLC (alarm acknowledge, alarms that change between two polls), and real
+firmware text library layouts (the mock follows the C# parsing code, not captured traffic).
 
 ## Findings
 
