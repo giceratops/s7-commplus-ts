@@ -5,7 +5,9 @@ a client for the S7CommPlus protocol of Siemens S7-1200 (FW >= 4.3) / S7-1500 (F
 Runs on Node.js >= 18 (uses `node:net`, `node:tls`, `node:crypto`, `node:zlib`; no OpenSSL DLLs needed).
 
 > Status: faithful port of the full C# driver (connection, browse, read/write tags, subscriptions, alarms,
-> legitimation, blob decompression). Codec-level unit tests exist; it has **not yet been verified against a real PLC**.
+> legitimation, blob decompression). Codec-level unit tests and C# differential (golden vector) tests exist, and the whole
+> network stack (ISO-on-TCP, TLS 1.3, session setup, legitimation, browse, read/write, subscriptions, alarms) is exercised
+> end to end against an in-process mock PLC (`test/mock-plc/`, see below). It has **not yet been verified against a real PLC**.
 
 ## Install
 ```
@@ -50,7 +52,33 @@ Type `help` inside for the command list. `write`, `state` change the PLC: use wi
 | (driver API) PLC operating state | `state <stop\|run\|n>` |
 | (driver API) alarms | `alarms`, `alarmdefs`, `alarmwatch` |
 
+## Tests
+```
+npm test            # = npx vitest run
+```
+- `test/golden.test.ts`: byte-identical comparison with the C# driver (golden vectors, see `PORTING.md`).
+- `test/integration.test.ts` + `test/mock-plc/`: an in-process **mock S7-1500** (a `node:net` server speaking ISO-on-TCP/COTP,
+  the unencrypted InitSsl exchange, a real TLS 1.3 server handshake tunnelled through DT TPDUs, and the S7+ session,
+  legitimation, read/write, explore/browse, delete, subscription and alarm messages). The self-signed certificate is
+  generated at test time with the `openssl` CLI into a temporary directory (nothing is committed). The mock validates the
+  client's sequence numbers, integrity ids, session ids, address sub areas and value types and records deviations.
+  The TLS layer is additionally cross-checked against `openssl s_server` (OMS exporter secret, forced cipher suites).
+  Needs the `openssl` CLI on the PATH.
+
 ## Differences from the C# driver
 - Async/Promise API instead of blocking calls; no threads.
 - TLS via Node's `tls` (TLS 1.3) instead of OpenSSL; set `conn.client.keyLogEnabled = true` for Wireshark key logs.
 - `ValueWString` serialises the UTF-8 byte length (C# used the char count).
+- `S7CommPlusConnection.plcPort`, `connTimeout`, `isoRecvTimeout`: TCP port (default 102) and socket timeouts for `connect()`
+  (C# hard-codes them). Useful for simulators / port forwards.
+- Received S7+ data is re-framed into fragments before the C# reassembly logic runs (Node's `TLSSocket` does not guarantee that
+  one `data` event is one TLS record, OpenSSL's `SSL_read` did).
+- `connect()` can be called again on the same object (all per-session state is reset); `disconnect()` is a no-op when not
+  connected, and does not wait for an answer when the connection is already gone; `readValues` returns a failed send at once.
+- A malformed PDU never throws out of the socket handler (it sets `lastError = errIsoInvalidPDU`).
+- `connect()` no longer returns 0 (success) when the InitSsl answer is an unexpected PDU.
+
+## Known limitations inherited from the C# driver
+- There is a single response queue: a subscription / alarm notification, or a late answer to a request that already timed out,
+  is taken for the answer of the next request while a subscription is active (the C# sources flag this as "needs some more
+  redesign"). Do not mix polling requests with active subscriptions on one connection.

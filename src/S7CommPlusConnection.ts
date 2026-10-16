@@ -102,6 +102,14 @@ export class S7CommPlusConnection {
   sessionId = 0; // m_SessionId
   private _sessionId2 = 0; // m_SessionId2
   readTimeout = 5000; // m_ReadTimeout
+  /**
+   * TypeScript addition (the C# driver always uses ISO-on-TCP port 102 and the default socket timeouts):
+   * TCP port, TCP connect timeout and ISO connection-confirm receive timeout (ms) used by connect().
+   * Useful for PLC simulators, port forwards and the in-process mock PLC of the integration tests.
+   */
+  plcPort = 102;
+  connTimeout = 2000;
+  isoRecvTimeout = 2000;
   lastError = 0; // m_LastError
   /** OMS secret, rolled by legitimateNew. */
   omsSecret: Uint8Array | null = null;
@@ -110,6 +118,7 @@ export class S7CommPlusConnection {
   private receivedPDUs: ByteStream[] = [];
   private pduWaiters: Array<() => void> = [];
   private receivedNeedMoreDataForCompletePDU = false;
+  private rxStream: Buffer = Buffer.alloc(0);
   private newS7CommPlusReceived = false;
   private sequenceNumber = 0;
   private integrityId = 0;
@@ -287,7 +296,50 @@ export class S7CommPlusConnection {
     return this.lastError;
   }
 
-  private onDataReceived = (PDU: Uint8Array, len: number): void => {
+  /**
+   * TypeScript addition. The C# driver gets exactly one TLS record (OpenSSL SSL_read) or one TPDU per call and
+   * relies on that in OnDataReceived (`len - 8 == dataLength` decides whether the trailer is present). Node's
+   * TLSSocket does not guarantee that boundary (records may be coalesced or a fragment may be spread over several
+   * 'data' events), so incoming bytes are first re-framed here into exactly what OnDataReceived expects: one S7+
+   * fragment per call, header + data (+ 4 byte trailer when it is the last fragment). For input that is already
+   * aligned the behaviour is identical.
+   */
+  private onDataReceived = (data: Uint8Array, _len: number): void => {
+    this.rxStream = this.rxStream.length === 0 ? Buffer.from(data) : Buffer.concat([this.rxStream, data]);
+    for (;;) {
+      const b = this.rxStream;
+      if (b.length < 4) return;
+      if (b[0] !== 0x72) {
+        // Not an S7CommPlus header: same reaction as OnDataReceived (error), a resynchronisation is impossible.
+        this.rxStream = Buffer.alloc(0);
+        this.receivedNeedMoreDataForCompletePDU = false;
+        this.lastError = S7Consts.errIsoInvalidPDU;
+        return;
+      }
+      const dataLen = (b[2] << 8) | b[3];
+      let unitLen = 4 + dataLen;
+      if (b[1] !== ProtocolVersion.SystemEvent && dataLen > 0) {
+        // Is the fragment followed by the 4 byte trailer (72 ver 00 00)? Only the last fragment has one.
+        if (b.length < unitLen + 4) return;
+        if (b[unitLen] === 0x72 && b[unitLen + 1] === b[1] && b[unitLen + 2] === 0 && b[unitLen + 3] === 0) unitLen += 4;
+      }
+      if (b.length < unitLen) return;
+      const unit = new Uint8Array(b.subarray(0, unitLen));
+      this.rxStream = b.subarray(unitLen);
+      try {
+        this.onDataFragmentReceived(unit, unit.length);
+      } catch (e) {
+        // A malformed PDU (e.g. an undecodable SystemEvent) must not end up as an uncaught exception in the socket's
+        // event handler, which would terminate the Node process (the C# receive thread has the same weakness).
+        console.log("S7CommPlusConnection - OnDataReceived: Exception while processing a PDU: " + (e as Error).message);
+        this.receivedNeedMoreDataForCompletePDU = false;
+        this.newS7CommPlusReceived = false;
+        this.lastError = S7Consts.errIsoInvalidPDU;
+      }
+    }
+  };
+
+  private onDataFragmentReceived(PDU: Uint8Array, len: number): void {
     // In this method, we've got always a complete TPDU (from protocol layer above) without fragmentation
     // At this point, we can detect if we receive a fragmented S7CommPlus PDU.
     // If not fragmented, then TPKT.Length - 15 is equal of the length in S7CommPlus.Header.
@@ -378,7 +430,7 @@ export class S7CommPlusConnection {
       const w = this.pduWaiters.shift();
       if (w !== undefined) w();
     }
-  };
+  }
 
   checkResponseWithIntegrity(request: IS7pRequest, response: IS7pResponse | null | undefined): number {
     if (response === null || response === undefined) {
@@ -430,8 +482,26 @@ export class S7CommPlusConnection {
     this.lastError = 0;
     let res: number;
     const started = Date.now();
+    // TypeScript addition: a connection object can be connected again (the C# class keeps this state, which breaks
+    // a reconnect: sequence/integrity counters of the old session, a stale rolled OMS secret of the old TLS
+    // session, type info of the old session and a SessionId left over by a failed attempt).
+    this.sessionId = 0;
+    this._sessionId2 = 0;
+    this.sequenceNumber = 0;
+    this.integrityId = 0;
+    this.integrityIdSet = 0;
+    this.omsSecret = null;
+    this.dbInfoList = null;
+    this.typeInfoList = [];
+    this.commRessources = new CommRessources();
+    this._subscription = null;
+    this._alarmsHandler = null;
+    this.rxStream = Buffer.alloc(0);
     this.client = new S7Client();
     this.client.onDataReceived = this.onDataReceived;
+    this.client.plcPort = this.plcPort;
+    this.client.connTimeout = this.connTimeout;
+    this.client.recvTimeout = this.isoRecvTimeout;
     this.receivedPDUs = [];
     this.receivedNeedMoreDataForCompletePDU = false;
     this.newS7CommPlusReceived = false;
@@ -457,7 +527,8 @@ export class S7CommPlusConnection {
     if (sslRes === null) {
       console.log("S7CommPlusConnection - Connect: InitSslResponse with Error!");
       this.client.disconnect();
-      return this.lastError;
+      // C# returns m_LastError here, which is 0 (= success) if the PLC answered with an unexpected PDU.
+      return this.lastError !== 0 ? this.lastError : S7Consts.errIsoInvalidPDU;
     }
 
     // Step 2: Activate TLS. Everything from here onwards is TLS encrypted.
@@ -540,7 +611,12 @@ export class S7CommPlusConnection {
   }
 
   async disconnect(): Promise<void> {
-    await this.deleteObject(this.sessionId);
+    // C# calls DeleteObject unconditionally (NullReferenceException when never connected, and a full read timeout
+    // of waiting for an answer that cannot come when the connection is already gone / disconnect is called twice).
+    if (this.client === undefined) return;
+    if (this.client.connected && this.sessionId !== 0) {
+      await this.deleteObject(this.sessionId);
+    }
     this.client.disconnect();
   }
 
@@ -621,6 +697,11 @@ export class S7CommPlusConnection {
       }
 
       res = await this.sendS7plusFunctionObject(getMultiVarReq);
+      if (res !== 0) {
+        // C# ignores a failed send here and waits for the read timeout for an answer that cannot arrive
+        // (WriteValues and all the other requests return the send error immediately).
+        return { res, values, errors };
+      }
       this.lastError = 0;
       await this.waitForNewS7plusReceived(this.readTimeout);
       if (this.lastError !== 0) {

@@ -35,3 +35,11 @@ ClientApi->clientapi, Subscriptions->subscriptions). File name = C# class name (
 `test/golden.test.ts` replays the same specs against the port and requires byte-identical output / identical decoded
 fields / identical "throws". See `tools/golden-gen/README.md` for regeneration and the list of documented deviations.
 Helpers that emulate .NET behaviour (float/double/DateTime formatting, `Dictionary.Add`) live in `src/core/NetCompat.ts`.
+
+## Integration tests (mock PLC)
+
+`test/mock-plc/` is an in-process mock S7-1500 used by `test/integration.test.ts` (layout: `wire.ts` TPKT/COTP/S7+ framing,
+`messages.ts` request parsers / response builders whose byte layouts follow the C# `Serialize`/`Deserialize` methods,
+`model.ts` the fake datablocks + type info, `MockPlc.ts` the server, `cert.ts` per-test self-signed certificate via the
+`openssl` CLI). Deviations from the C# driver that were needed to make the stack robust are listed in `README.md`
+("Differences from the C# driver") and were found by these tests.

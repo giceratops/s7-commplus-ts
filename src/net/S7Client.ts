@@ -117,6 +117,7 @@ export class S7Client {
   private time_ms = 0;
   private rxBuf: Buffer = Buffer.alloc(0);
   private isoWaiter: ((size: number, pduType: number) => void) | null = null;
+  private isoWaitAbort: (() => void) | null = null;
 
   constructor() {
     this.socket = this.createSocket();
@@ -130,6 +131,8 @@ export class S7Client {
     s.onData = (d) => this.onSocketData(d);
     s.onClose = (hadError) => {
       if (this.socket !== s) return;
+      // Peer closed while waiting for the connection confirm: C# Receive() fails right away (0 bytes read).
+      this.isoWaitAbort?.();
       this.rxBuf = Buffer.alloc(0);
       this.tlsChannel?.close();
       this.tlsChannel = null;
@@ -305,17 +308,26 @@ export class S7Client {
     const reply = new Promise<{ size: number; type: number } | null>((resolve) => {
       const timer = setTimeout(() => {
         this.isoWaiter = null;
+        this.isoWaitAbort = null;
         resolve(null);
       }, this._RecvTimeout);
       this.isoWaiter = (size, type) => {
         clearTimeout(timer);
+        this.isoWaitAbort = null;
         resolve({ size, type });
+      };
+      this.isoWaitAbort = () => {
+        clearTimeout(timer);
+        this.isoWaiter = null;
+        this.isoWaitAbort = null;
+        resolve(null);
       };
     });
     // Sends the connection request telegram
     await this.sendPacket(isocon);
     if (this._lastError !== 0) {
       this.isoWaiter = null;
+      this.isoWaitAbort = null;
       return this._lastError;
     }
     // Gets the reply (if any)
