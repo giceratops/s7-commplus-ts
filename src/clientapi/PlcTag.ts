@@ -1150,7 +1150,7 @@ export class PlcTagDateAndTimeArray extends PlcTag {
         }
         // The left nibble of the last byte contains the LSD of milliseconds,
         // the right nibble the weekday (which we don't process here).
-        ts[7] = v[7] >> 4;
+        ts[7] = v[pos + 7] >> 4;
 
         let year: number;
         if (ts[0] >= 90) {

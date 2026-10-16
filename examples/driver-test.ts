@@ -1,9 +1,15 @@
 /*
  * Port of DriverTest/Program.cs (S7CommPlusDriver, Thomas Wiens). Ported to TypeScript.
- * Usage: npx tsx examples/driver-test.ts [ip] [password] [username]
+ * Usage: npx tsx examples/driver-test.ts [ip] [password] [username] [--test-plctag]
+ *
+ * --test-plctag additionally runs the PlcTag hardware test suite (examples/test-plctag.ts, port of TestPlcTag.cs).
+ * NOTE: it WRITES to the PLC, use only with the test programs from the plc/ folder.
+ * (In the C# Program.cs the TestPlcTag class is not called; the _TEST_PLCTAG define there only selects the
+ * browse + ReadTags output, which is what this file does by default.)
  */
 import { ItemAddress, PlcTags, S7CommPlusConnection, Softdatatype } from "../src/index.js";
 import type { PlcTag } from "../src/index.js";
+import { TestPlcTag } from "./test-plctag.js";
 
 async function main(): Promise<void> {
   let hostIp = "192.168.1.30";
@@ -11,7 +17,9 @@ async function main(): Promise<void> {
   let username = "";
   console.log("Main - START");
   // IP address, password and username can be passed as arguments
-  const args = process.argv.slice(2);
+  const rawArgs = process.argv.slice(2);
+  const runPlcTagTests = rawArgs.includes("--test-plctag");
+  const args = rawArgs.filter((a) => a !== "--test-plctag");
   if (args.length >= 1) hostIp = args[0];
   if (args.length >= 2) password = args[1];
   if (args.length >= 3) username = args[2];
@@ -46,6 +54,10 @@ async function main(): Promise<void> {
           fmt(t.name, t.address.getAccessString(), Softdatatype.Types.get(t.datatype) ?? String(t.datatype), t.toString()),
         );
       }
+    }
+
+    if (runPlcTagTests) {
+      await new TestPlcTag().doTests(conn, 10, false);
     }
 
     /*
