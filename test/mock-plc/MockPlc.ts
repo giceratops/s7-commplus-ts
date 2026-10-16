@@ -75,6 +75,8 @@ export interface MockPlcOptions {
   initSsl: "ok" | "none" | "error" | "errorResponse";
   /** TLS stage: normal / answer the ClientHello with garbage / close the connection when TLS starts */
   tls: "ok" | "garbage" | "close";
+  /** use a fixed (reproducible) legitimation challenge instead of random bytes */
+  fixedChallenge: boolean;
 }
 
 export function defaultOptions(): MockPlcOptions {
@@ -94,6 +96,7 @@ export function defaultOptions(): MockPlcOptions {
     cc: "ok",
     initSsl: "ok",
     tls: "ok",
+    fixedChallenge: false,
   };
 }
 
@@ -131,6 +134,8 @@ export class MockPlc {
   readonly memory: Map<string, PValue>;
   readonly connections = new Set<PlcConnection>();
   readonly requests: ParsedRequest[] = [];
+  /** the request PDUs exactly as received (after TLS decryption, S7+ fragment headers removed), parallel to `requests` */
+  readonly rawRequests: Array<{ version: number; data: Uint8Array; fragments: number }> = [];
   readonly violations: string[] = [];
   readonly legitimations: LegitRecord[] = [];
   readonly crInfos: Array<{ localTsap: number; remoteTsap: string }> = [];
@@ -320,6 +325,7 @@ export class PlcConnection {
   private onPlainPdu(pdu: S7pPdu): void {
     const req = parseRequest(pdu.version, pdu.data, false);
     this.plc.requests.push(req);
+    this.plc.rawRequests.push({ version: pdu.version, data: new Uint8Array(pdu.data), fragments: pdu.fragments });
     if (req.kind !== "InitSsl") {
       this.plc.violation("unencrypted request other than InitSsl: " + req.kind);
       return;
@@ -450,6 +456,7 @@ export class PlcConnection {
         continue;
       }
       this.plc.requests.push(req);
+      this.plc.rawRequests.push({ version: pdu.version, data: new Uint8Array(pdu.data), fragments: pdu.fragments });
       this.plc.requestFragments.push(pdu.fragments);
       const expectsResponse = !(req.kind === "SetVariable" && req.transportFlags === 0x74);
       if (expectsResponse) {
@@ -761,7 +768,7 @@ export class PlcConnection {
     if (req.address === Ids.ServerSessionRequest) {
       // legacy login: the answer is SHA1(password) xor challenge => 20 bytes; the new login uses the first 16 as IV
       const len = this.legacyFirmware() ? 20 : 32;
-      this.challenge = randomBytes(len);
+      this.challenge = this.plc.opts.fixedChallenge ? Buffer.from(Array.from({ length: len }, (_, i) => (i * 37 + 11) & 0xff)) : randomBytes(len);
       return buildGetVarSubstreamedResponse(req.sequenceNumber, this.respondInteg(req), 0n, new ValueUSIntArray(new Uint8Array(this.challenge)));
     }
     this.plc.violation("unhandled GetVarSubstreamed address " + req.address);

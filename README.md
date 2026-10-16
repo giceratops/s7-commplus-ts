@@ -7,7 +7,8 @@ Runs on Node.js >= 18 (uses `node:net`, `node:tls`, `node:crypto`, `node:zlib`; 
 > Status: faithful port of the full C# driver (connection, browse, read/write tags, subscriptions, alarms,
 > legitimation, blob decompression). Codec-level unit tests and C# differential (golden vector) tests exist, and the whole
 > network stack (ISO-on-TCP, TLS 1.3, session setup, legitimation, browse, read/write, subscriptions, alarms) is exercised
-> end to end against an in-process mock PLC (`test/mock-plc/`, see below). It has **not yet been verified against a real PLC**.
+> end to end against an in-process mock PLC (`test/mock-plc/`, see below), and the original C# network layer was run against the
+> same mock PLC to compare results and request streams (`tools/c-sharp-net-driver/`). It has **not yet been verified against a real PLC**.
 
 ## Install
 ```
@@ -64,6 +65,9 @@ npm test            # = npx vitest run
   client's sequence numbers, integrity ids, session ids, address sub areas and value types and records deviations.
   The TLS layer is additionally cross-checked against `openssl s_server` (OMS exporter secret, forced cipher suites).
   Needs the `openssl` CLI on the PATH.
+- `test/csharp-diff.test.ts` + `tools/c-sharp-net-driver/`: the **original C# driver including its network layer** (compiled
+  unmodified for .NET 8, real OpenSSL) was run against the same mock PLC; `recording.json` holds its results and the request
+  PDUs the mock received, and the test requires the TS client to produce the same for 37 scenarios (see the tool's README).
 
 ## Differences from the C# driver
 - Async/Promise API instead of blocking calls; no threads.
@@ -77,6 +81,14 @@ npm test            # = npx vitest run
   connected, and does not wait for an answer when the connection is already gone; `readValues` returns a failed send at once.
 - A malformed PDU never throws out of the socket handler (it sets `lastError = errIsoInvalidPDU`).
 - `connect()` no longer returns 0 (success) when the InitSsl answer is an unexpected PDU.
+- A failing send (socket already closed, TLS handshake failed) is reported at once as `errTCPDataSend` (7) instead of being
+  ignored; the C# driver never notices it (`SendS7plusPDUdata` returns its own `m_LastError`), waits for the read timeout and
+  reports `errTCPDataReceive` (5).
+- Where the C# network layer hangs or crashes (non-TLS bytes as answer to the ClientHello: `OpenSSLConnector.RunSSL` spins forever;
+  an S7+ fragment spread over two TLS records: `ArgumentOutOfRangeException` on the receive thread) the port returns an error / works.
+
+All other behaviour of the network layer is verified to be identical (return codes, tag values, request PDU bytes, sequence /
+integrity / session ids) against the original C# driver running with real OpenSSL, see `tools/c-sharp-net-driver/README.md`.
 
 ## Known limitations inherited from the C# driver
 - There is a single response queue: a subscription / alarm notification, or a late answer to a request that already timed out,
