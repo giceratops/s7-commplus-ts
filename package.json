@@ -1,0 +1,24 @@
+{
+  "name": "s7-commplus-ts",
+  "version": "0.1.0",
+  "description": "TypeScript port of S7CommPlusDriver: S7CommPlus protocol client for Siemens S7-1200/1500 PLCs",
+  "license": "LGPL-3.0-or-later",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["s7", "s7commplus", "siemens", "plc", "s7-1200", "s7-1500"],
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}
