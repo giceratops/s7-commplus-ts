@@ -4,6 +4,7 @@
  * Licensed under the GNU Lesser General Public License v3 or later.
  * Ported to TypeScript.
  */
+import { dictAdd } from "./NetCompat.js";
 import { ByteStream } from "./ByteStream.js";
 import { Functioncode } from "./Functioncode.js";
 import { Opcode } from "./Opcode.js";
@@ -39,7 +40,7 @@ export class SetMultiVariablesResponse {
     itemnr = S7p.decodeUInt32Vlq(buffer);
     while (itemnr > 0) {
       const retval = S7p.decodeUInt64Vlq(buffer);
-      this.errorValues.set(itemnr, retval);
+      dictAdd(this.errorValues, itemnr, retval);
       itemnr = S7p.decodeUInt32Vlq(buffer); /// TODO: Is this correct?
     }
     this.integrityId = S7p.decodeUInt32Vlq(buffer);

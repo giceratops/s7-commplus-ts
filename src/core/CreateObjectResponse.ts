@@ -57,7 +57,7 @@ export class CreateObjectResponse {
     for (const id of this.objectIds) {
       s += "<ObjectId>" + id.toString() + "</ObjectId>" + "\n";
     }
-    s += "<ResponseObject>" + String(this.responseObject) + "</ResponseObject>" + "\n";
+    s += "<ResponseObject>" + this.responseObject!.toString() + "</ResponseObject>" + "\n"; // (C#: NullReferenceException if no object was decoded)
     s += "</ResponseSet>" + "\n";
     s += "</CreateObjectResponse>" + "\n";
     return s;

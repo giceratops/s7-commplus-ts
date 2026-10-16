@@ -17,11 +17,22 @@ import { ByteStream } from "./ByteStream.js";
 import { Datatype } from "./Datatype.js";
 import type { IS7pSerialize } from "./IS7pSerialize.js";
 import { S7p } from "./S7p.js";
+import { doubleToString, singleToString } from "./NetCompat.js";
 
 // Mimics Dictionary.Add, which throws on duplicate keys.
 function addUnique<K, V>(map: Map<K, V>, key: K, value: V): void {
   if (map.has(key)) throw new Error("An item with the same key has already been added.");
   map.set(key, value);
+}
+
+/**
+ * C# `new T[n]` with a uint `n` throws OverflowException / OutOfMemoryException for absurd sizes read from a (corrupt)
+ * telegram. A JS `new Array(n)` would silently create a huge sparse array and then loop for ~4G iterations,
+ * so mimic the C# behaviour and throw (max .NET array length is 0x7FFFFFC7).
+ */
+function arrayLen(n: number): number {
+  if (n > 0x7fffffc7) throw new RangeError("Arithmetic operation resulted in an overflow.");
+  return n;
 }
 
 function pad(n: number | bigint, width: number): string {
@@ -280,7 +291,7 @@ export class ValueBoolArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueBoolArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<boolean>(size);
+    const value = new Array<boolean>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = S7p.decodeByte(buffer) !== 0;
     }
@@ -356,7 +367,7 @@ export class ValueUSIntArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueUSIntArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Uint8Array(size);
+    const value = new Uint8Array(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = S7p.decodeByte(buffer);
     }
@@ -432,7 +443,7 @@ export class ValueUIntArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueUIntArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<number>(size);
+    const value = new Array<number>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = S7p.decodeUInt16(buffer);
     }
@@ -508,7 +519,7 @@ export class ValueUDIntArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueUDIntArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<number>(size);
+    const value = new Array<number>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = disableVlq ? S7p.decodeUInt32(buffer) : S7p.decodeUInt32Vlq(buffer);
     }
@@ -647,7 +658,7 @@ export class ValueULIntArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueULIntArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<bigint>(size);
+    const value = new Array<bigint>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = disableVlq ? S7p.decodeUInt64(buffer) : S7p.decodeUInt64Vlq(buffer);
     }
@@ -723,7 +734,7 @@ export class ValueSIntArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueSIntArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<number>(size);
+    const value = new Array<number>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = (S7p.decodeByte(buffer) << 24) >> 24;
     }
@@ -799,7 +810,7 @@ export class ValueIntArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueIntArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<number>(size);
+    const value = new Array<number>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = S7p.decodeInt16(buffer);
     }
@@ -875,7 +886,7 @@ export class ValueDIntArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueDIntArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<number>(size);
+    const value = new Array<number>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = disableVlq ? S7p.decodeInt32(buffer) : S7p.decodeInt32Vlq(buffer);
     }
@@ -1014,7 +1025,7 @@ export class ValueLIntArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueLIntArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<bigint>(size);
+    const value = new Array<bigint>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = disableVlq ? S7p.decodeInt64(buffer) : S7p.decodeInt64Vlq(buffer);
     }
@@ -1090,7 +1101,7 @@ export class ValueByteArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueByteArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Uint8Array(size);
+    const value = new Uint8Array(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = S7p.decodeByte(buffer);
     }
@@ -1166,7 +1177,7 @@ export class ValueWordArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueWordArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<number>(size);
+    const value = new Array<number>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = S7p.decodeUInt16(buffer);
     }
@@ -1242,7 +1253,7 @@ export class ValueDWordArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueDWordArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<number>(size);
+    const value = new Array<number>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = S7p.decodeUInt32(buffer);
     }
@@ -1318,7 +1329,7 @@ export class ValueLWordArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueLWordArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<bigint>(size);
+    const value = new Array<bigint>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = S7p.decodeUInt64(buffer);
     }
@@ -1348,7 +1359,7 @@ export class ValueReal extends PValue {
   }
 
   override toString(): string {
-    return `<Value type="Real">${this.value}</Value>`;
+    return `<Value type="Real">${singleToString(this.value)}</Value>`;
   }
 
   static deserializeBody(buffer: ByteStream, flags: number): ValueReal {
@@ -1386,7 +1397,7 @@ export class ValueRealArray extends PValue {
   override toString(): string {
     let s = "<Value type =\"RealArray\" size=\"" + this.value.length.toString() + "\">";
     for (let i = 0; i < this.value.length; i++) {
-      s += `<Value>${this.value[i]}</Value>`;
+      s += `<Value>${singleToString(this.value[i])}</Value>`;
     }
     s += "</Value>";
     return s;
@@ -1394,7 +1405,7 @@ export class ValueRealArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueRealArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<number>(size);
+    const value = new Array<number>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = S7p.decodeFloat(buffer);
     }
@@ -1424,7 +1435,7 @@ export class ValueLReal extends PValue {
   }
 
   override toString(): string {
-    return `<Value type="LReal">${this.value}</Value>`;
+    return `<Value type="LReal">${doubleToString(this.value)}</Value>`;
   }
 
   static deserializeBody(buffer: ByteStream, flags: number): ValueLReal {
@@ -1462,7 +1473,7 @@ export class ValueLRealArray extends PValue {
   override toString(): string {
     let s = "<Value type =\"LRealArray\" size=\"" + this.value.length.toString() + "\">";
     for (let i = 0; i < this.value.length; i++) {
-      s += `<Value>${this.value[i]}</Value>`;
+      s += `<Value>${doubleToString(this.value[i])}</Value>`;
     }
     s += "</Value>";
     return s;
@@ -1470,7 +1481,7 @@ export class ValueLRealArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueLRealArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<number>(size);
+    const value = new Array<number>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = S7p.decodeDouble(buffer);
     }
@@ -1570,7 +1581,7 @@ export class ValueTimestampArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueTimestampArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<bigint>(size);
+    const value = new Array<bigint>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = S7p.decodeUInt64(buffer);
     }
@@ -1688,7 +1699,7 @@ export class ValueTimespanArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueTimespanArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<bigint>(size);
+    const value = new Array<bigint>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = disableVlq ? S7p.decodeInt64(buffer) : S7p.decodeInt64Vlq(buffer);
     }
@@ -1764,7 +1775,7 @@ export class ValueRIDArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueRIDArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<number>(size);
+    const value = new Array<number>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = S7p.decodeUInt32(buffer);
     }
@@ -1840,7 +1851,7 @@ export class ValueAIDArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueAIDArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<number>(size);
+    const value = new Array<number>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = disableVlq ? S7p.decodeUInt32(buffer) : S7p.decodeUInt32Vlq(buffer);
     }
@@ -1927,6 +1938,7 @@ export class ValueBlob extends PValue {
     }
 
     const blobSize = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
+    arrayLen(blobSize); // C#: value = new byte[blobSize]
     const value = S7p.decodeOctets(buffer, blobSize);
     const blob = new ValueBlob(blobRootId, value, flags);
     blob.hasBlobType = hasBlobType;
@@ -1972,7 +1984,7 @@ export class ValueBlobArray extends PValue {
 
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueBlobArray {
     const size = !disableVlq ? S7p.decodeUInt32Vlq(buffer) : S7p.decodeUInt32(buffer);
-    const value = new Array<ValueBlob>(size);
+    const value = new Array<ValueBlob>(arrayLen(size));
     for (let i = 0; i < size; i++) {
       value[i] = ValueBlob.deserializeBody(buffer, flags, disableVlq);
     }
@@ -2034,6 +2046,7 @@ export class ValueBlobSparseArray extends PValue {
     while (k > 0) {
       const blobRootId = rd(buffer);
       const blobSize = rd(buffer);
+      arrayLen(blobSize); // C#: v.value = new byte[blobSize]
       const v: BlobEntry = { blobRootId, value: S7p.decodeOctets(buffer, blobSize) };
       addUnique(value, k, v);
       k = rd(buffer);
@@ -2112,7 +2125,7 @@ export class ValueWStringArray extends PValue {
   static deserializeBody(buffer: ByteStream, flags: number, disableVlq: boolean): ValueWStringArray {
     const rd = disableVlq ? (b: ByteStream) => S7p.decodeUInt32(b) : (b: ByteStream) => S7p.decodeUInt32Vlq(b);
     const arraySize = rd(buffer);
-    const value = new Array<string>(arraySize);
+    const value = new Array<string>(arrayLen(arraySize));
     for (let i = 0; i < arraySize; i++) {
       const stringlen = rd(buffer);
       value[i] = S7p.decodeWString(buffer, stringlen);
@@ -2309,7 +2322,7 @@ export class ValueStruct extends PValue {
         }
       }
       stru.packedStructTransportFlags = transpFlags;
-      const barr = new Uint8Array(elementcount);
+      const barr = new Uint8Array(arrayLen(elementcount));
       for (let i = 0; i < elementcount; i++) {
         barr[i] = S7p.decodeByte(buffer);
       }

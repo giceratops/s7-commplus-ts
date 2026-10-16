@@ -5,6 +5,7 @@
  * Ported to TypeScript.
  */
 
+import { dictAdd } from "../core/NetCompat.js";
 import { ByteStream } from "../core/ByteStream.js";
 import { Ids } from "../core/Ids.js";
 import { ProtocolVersion } from "../core/ProtocolVersion.js";
@@ -98,7 +99,7 @@ export async function exploreASAlarms(
           const alarm = new AlarmData(0x8a7e0000); // TODO: Get this from parent object?
           const buffer = new ByteStream(entry.value!);
           alarm.deserialize(buffer);
-          alarms.set(alarm.getCpuAlarmId(), alarm);
+          dictAdd(alarms, alarm.getCpuAlarmId(), alarm);
         }
       } else {
         console.log("ExploreASAlarms(): stais is not ValueBlobSparseArray");
@@ -151,7 +152,7 @@ export async function exploreASAlarms(
             const buffer = new ByteStream(entry.value!);
 
             alarm.deserialize(buffer);
-            alarms.set(alarm.getCpuAlarmId(), alarm);
+            dictAdd(alarms, alarm.getCpuAlarmId(), alarm);
           }
         } else {
           console.log("ExploreASAlarms(): stais is not ValueBlobSparseArray");

@@ -8,6 +8,7 @@
 import { Ids } from "../core/Ids.js";
 import { ValueStruct, ValueUSInt, ValueTimestamp, ValueBlobArray } from "../core/PValue.js";
 import { Utils } from "../core/Utils.js";
+import { utcDateTimeToString } from "../core/NetCompat.js";
 import { AlarmsAssociatedValues } from "./AlarmsAssociatedValues.js";
 
 const NL = "\n";
@@ -26,9 +27,9 @@ export class AlarmsAsCgs {
   subtypeId = 0; // This is not part of the class, but is neccessary to store the information: 2673 = DAI.Coming, 2677 = DAI.Going
 
   allStatesInfo = 0;
-  timestamp: Date = new Date(0);
+  timestamp: Date = new Date(-62135596800000); // C# default DateTime.MinValue
   associatedValues!: AlarmsAssociatedValues;
-  ackTimestamp: Date = new Date(0);
+  ackTimestamp: Date = new Date(-62135596800000);
 
   toString(): string {
     let s = "<AlarmsAsCgs>" + NL;
@@ -36,8 +37,8 @@ export class AlarmsAsCgs {
     s += "<SubtypeIdName>" + subtypeIdName(this.subtypeId) + "</SubtypeIdName>" + NL;
     s += "<AllStatesInfo>" + this.allStatesInfo + "</AllStatesInfo>" + NL;
     s += "<AssociatedValues>" + NL + this.associatedValues.toString() + "</AssociatedValues>" + NL;
-    s += "<Timestamp>" + this.timestamp.toISOString() + "</Timestamp>" + NL;
-    s += "<AckTimestamp>" + this.ackTimestamp.toISOString() + "</AckTimestamp>" + NL;
+    s += "<Timestamp>" + utcDateTimeToString(this.timestamp) + "</Timestamp>" + NL;
+    s += "<AckTimestamp>" + utcDateTimeToString(this.ackTimestamp) + "</AckTimestamp>" + NL;
     s += "</AlarmsAsCgs>" + NL;
     return s;
   }

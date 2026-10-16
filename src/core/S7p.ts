@@ -392,7 +392,9 @@ export class S7p {
 
   static encodeFloat(buffer: ByteStream, value: number): number {
     const dv = new DataView(new ArrayBuffer(4));
-    dv.setFloat32(0, value, false);
+    // NaN: JS cannot carry the sign/payload; write the bit pattern of C# float.NaN (0xFFC00000)
+    if (Number.isNaN(value)) dv.setUint32(0, 0xffc00000, false);
+    else dv.setFloat32(0, value, false);
     buffer.write(new Uint8Array(dv.buffer));
     return 4;
   }
@@ -405,7 +407,9 @@ export class S7p {
 
   static encodeDouble(buffer: ByteStream, value: number): number {
     const dv = new DataView(new ArrayBuffer(8));
-    dv.setFloat64(0, value, false);
+    // NaN: write the bit pattern of C# double.NaN (0xFFF8000000000000)
+    if (Number.isNaN(value)) { dv.setUint32(0, 0xfff80000, false); dv.setUint32(4, 0, false); }
+    else dv.setFloat64(0, value, false);
     buffer.write(new Uint8Array(dv.buffer));
     return 8;
   }
@@ -424,6 +428,7 @@ export class S7p {
 
   /** Returns the decoded string ("" when not enough data); bytes consumed = `length` on success. */
   static decodeWString(buffer: ByteStream, length: number): string {
+    length |= 0; // C# callers cast the uint length to int: values >= 2^31 become negative (new byte[-1] -> OverflowException)
     if (buffer.length - buffer.position < length) {
       return "";
     }
@@ -440,6 +445,7 @@ export class S7p {
 
   /** Returns an empty array (C# returned null) when length <= 0 or not enough data. */
   static decodeOctets(buffer: ByteStream, length: number): Uint8Array {
+    length |= 0; // C# callers cast the uint length to int
     if (length <= 0 || buffer.length - buffer.position < length) {
       return new Uint8Array(0);
     }

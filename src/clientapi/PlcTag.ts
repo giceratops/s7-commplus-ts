@@ -2,6 +2,7 @@
  * S7CommPlusDriver - Copyright (C) 2023 Thomas Wiens, th.wiens@gmx.de (LGPL v3+)
  * Ported to TypeScript.
  */
+import { singleToString, doubleToString } from "../core/NetCompat.js";
 import type { ItemAddress } from "./ItemAddress.js";
 import { PlcTagQC } from "./PlcTagQC.js";
 import {
@@ -56,14 +57,23 @@ function normEncoding(encoding: string): string {
   return encoding.toLowerCase().replace(/_/g, "-");
 }
 
-/** Encoding.GetEncoding(enc).GetBytes(str) */
+/** Encoding.GetEncoding(enc).GetBytes(str); unmappable characters are replaced by '?' like the .NET replacement fallback */
 function encodeText(str: string, encoding: string): Uint8Array {
+  const limited = (max: number): Uint8Array => {
+    const out: number[] = [];
+    for (const ch of str) { // iterates code points (a surrogate pair is one unit for the fallback)
+      const cp = ch.codePointAt(0)!;
+      out.push(cp <= max ? cp : 0x3f);
+    }
+    return Uint8Array.from(out);
+  };
   switch (normEncoding(encoding)) {
     case "iso-8859-1":
     case "latin1":
+      return limited(0xff);
     case "us-ascii":
     case "ascii":
-      return new Uint8Array(Buffer.from(str, "latin1"));
+      return limited(0x7f);
     case "utf-8":
     case "utf8":
       return new TextEncoder().encode(str);
@@ -78,13 +88,15 @@ function encodeText(str: string, encoding: string): Uint8Array {
 
 /** Encoding.GetEncoding(enc).GetString(bytes, index, count) */
 function decodeText(bytes: ArrayLike<number>, index: number, count: number, encoding: string): string {
+  if (index < 0 || count < 0 || index + count > bytes.length) throw new RangeError("Index and count must refer to a location within the buffer.");
   const sub = Uint8Array.from(Array.prototype.slice.call(bytes, index, index + count) as number[]);
   switch (normEncoding(encoding)) {
     case "iso-8859-1":
     case "latin1":
+      return Buffer.from(sub).toString("latin1");
     case "us-ascii":
     case "ascii":
-      return Buffer.from(sub).toString("latin1");
+      return Array.from(sub, (b) => (b > 0x7f ? "\ufffd" : String.fromCharCode(b))).join("");
     case "utf-16":
     case "utf-16le":
     case "unicode":
@@ -107,16 +119,6 @@ function hex2(n: number): string {
   return s;
 }
 
-/** Shortest round-trip representation of a single precision float (like .NET float.ToString()). */
-function floatToString(v: number): string {
-  if (!Number.isFinite(v) || v === 0) return String(v);
-  for (let p = 1; p <= 9; p++) {
-    const s = v.toPrecision(p);
-    if (Math.fround(parseFloat(s)) === v) return String(parseFloat(s));
-  }
-  return String(v);
-}
-
 /** DateTime.ToString() with the invariant culture: MM/dd/yyyy HH:mm:ss */
 function dateTimeToString(d: Date): string {
   return (
@@ -128,6 +130,23 @@ function dateTimeToString(d: Date): string {
 /** DateTime.ToShortDateString() with the invariant culture: MM/dd/yyyy */
 function dateToShortString(d: Date): string {
   return pad(d.getMonth() + 1, 2) + "/" + pad(d.getDate(), 2) + "/" + pad(d.getFullYear(), 4);
+}
+
+/** new DateTime(year, month, day, hour, minute, second): throws like .NET (ArgumentOutOfRangeException) for invalid components */
+function makeDateTime(year: number, month: number, day: number, hour: number, minute: number, second: number): Date {
+  const dim = [31, (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  if (!(year >= 1 && year <= 9999)) throw new RangeError("Year, Month, and Day parameters describe an un-representable DateTime.");
+  if (!(month >= 1 && month <= 12) || !(day >= 1 && day <= dim[month - 1])) throw new RangeError("Year, Month, and Day parameters describe an un-representable DateTime.");
+  if (!(hour >= 0 && hour <= 23) || !(minute >= 0 && minute <= 59) || !(second >= 0 && second <= 59)) throw new RangeError("Hour, Minute, and Second parameters describe an un-representable DateTime.");
+  const d = new Date(2000, month - 1, day, hour, minute, second);
+  d.setFullYear(year); // (the Date constructor maps years 0..99 to 1900..1999)
+  return d;
+}
+
+/** C# array element access: throws IndexOutOfRangeException instead of yielding undefined */
+function byteAt(v: ArrayLike<number>, i: number): number {
+  if (i < 0 || i >= v.length) throw new RangeError("Index was outside the bounds of the array.");
+  return v[i];
 }
 
 function addMilliseconds(d: Date, ms: number): Date {
@@ -321,7 +340,7 @@ export class PlcTagReal extends PlcTagSimple<number> {
   protected readonly valueType = ValueReal;
   protected fromPValue(v: PValue): number { return (v as any).getValue(); }
   protected toPValue(): PValue { return new ValueReal(this.value); }
-  protected override valueToString(): string { return floatToString(this.value); }
+  protected override valueToString(): string { return singleToString(this.value); }
 }
 
 export class PlcTagDate extends PlcTag {
@@ -544,11 +563,11 @@ export class PlcTagDateAndTime extends PlcTag {
       const v: ArrayLike<number> = (valueObj as any).getValue();
       const ts: number[] = new Array(8).fill(0);
       for (let i = 0; i < 7; i++) {
-        ts[i] = PlcTag["bcdByteToInt"](v[i]);
+        ts[i] = PlcTag["bcdByteToInt"](byteAt(v, i));
       }
       // The left nibble of the last byte contains the LSD of milliseconds,
       // the right nibble the weekday (which we don't process here).
-      ts[7] = v[7] >> 4;
+      ts[7] = byteAt(v, 7) >> 4;
 
       let year: number;
       if (ts[0] >= 90) {
@@ -556,7 +575,7 @@ export class PlcTagDateAndTime extends PlcTag {
       } else {
         year = 2000 + ts[0];
       }
-      this.value = new Date(year, ts[1] - 1, ts[2], ts[3], ts[4], ts[5]);
+      this.value = makeDateTime(year, ts[1], ts[2], ts[3], ts[4], ts[5]);
       this.value = addMilliseconds(this.value, ts[6] * 10 + ts[7]);
 
       this.quality = PlcTagQC.TAG_QUALITY_GOOD;
@@ -622,7 +641,8 @@ export class PlcTagString extends PlcTag {
     this.lastReadError = error;
     if (PlcTag.checkErrorAndType(error, valueObj, ValueUSIntArray) === 0) {
       const v: ArrayLike<number> = (valueObj as any).getValue();
-      const actLen = v[1];
+      byteAt(v, 0); // max_len (unused; C#: IndexOutOfRangeException on short data)
+      const actLen = byteAt(v, 1);
       // IEC 61131-3 states ISO-646 IRV, with optional extensions like "Latin-1 Supplement".
       // Siemens TIA-Portal gives warnings using other than 7 Bit ASCII characters.
       // Let the user define his local encoding via SetStringEncoding().
@@ -720,6 +740,7 @@ export class PlcTagLReal extends PlcTagSimple<number> {
   protected readonly valueType = ValueLReal;
   protected fromPValue(v: PValue): number { return (v as any).getValue(); }
   protected toPValue(): PValue { return new ValueLReal(this.value); }
+  protected override valueToString(): string { return doubleToString(this.value); }
 }
 
 export class PlcTagULInt extends PlcTagSimple<bigint> {
@@ -815,13 +836,17 @@ export class PlcTagWString extends PlcTag {
     this.lastReadError = error;
     if (PlcTag.checkErrorAndType(error, valueObj, ValueUIntArray) === 0) {
       const v: ArrayLike<number> = (valueObj as any).getValue();
-      const actLen = v[1];
+      byteAt(v, 0); // max_len (C#: IndexOutOfRangeException on short data)
+      const actLen = byteAt(v, 1);
 
       // Buffer.BlockCopy(v, 4, b, 0, act_len * 2) -> UTF-16LE code units starting at element 2
+      if (2 + actLen > v.length) throw new RangeError("Offset and length were out of bounds for the array or count is greater than the number of elements from index to the end of the source collection.");
       let s = "";
       for (let i = 0; i < actLen; i++) {
         s += String.fromCharCode(v[2 + i]);
       }
+      // Encoding.Unicode.GetString replaces lone surrogates with U+FFFD
+      s = s.replace(/[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/g, "\uFFFD");
       this.value = s;
       this.quality = PlcTagQC.TAG_QUALITY_GOOD;
     } else {
@@ -965,7 +990,7 @@ export class PlcTagDTL extends PlcTag {
           const barr: ArrayLike<number> = elem.getValue();
           const year = barr[0] * 256 + barr[1];
           this.valueNanosecond = ((barr[8] * 16777216 + barr[9] * 65536 + barr[10] * 256 + barr[11]) >>> 0);
-          this.value = new Date(year, barr[2] - 1, barr[3], barr[5], barr[6], barr[7]);
+          this.value = makeDateTime(year, barr[2], barr[3], barr[5], barr[6], barr[7]);
           this.quality = PlcTagQC.TAG_QUALITY_GOOD;
         } else {
           this.quality = PlcTagQC.TAG_QUALITY_BAD;
@@ -1146,11 +1171,11 @@ export class PlcTagDateAndTimeArray extends PlcTag {
       do {
         const ts: number[] = new Array(8).fill(0);
         for (let i = 0; i < 7; i++) {
-          ts[i] = PlcTag["bcdByteToInt"](v[pos + i]);
+          ts[i] = PlcTag["bcdByteToInt"](byteAt(v, pos + i));
         }
         // The left nibble of the last byte contains the LSD of milliseconds,
         // the right nibble the weekday (which we don't process here).
-        ts[7] = v[pos + 7] >> 4;
+        ts[7] = byteAt(v, pos + 7) >> 4;
 
         let year: number;
         if (ts[0] >= 90) {
@@ -1158,7 +1183,7 @@ export class PlcTagDateAndTimeArray extends PlcTag {
         } else {
           year = 2000 + ts[0];
         }
-        let value = new Date(year, ts[1] - 1, ts[2], ts[3], ts[4], ts[5]);
+        let value = makeDateTime(year, ts[1], ts[2], ts[3], ts[4], ts[5]);
         value = addMilliseconds(value, ts[6] * 10 + ts[7]);
         dateTimes.push(value);
         pos += 8;
@@ -1245,8 +1270,8 @@ export class PlcTagStringArray extends PlcTag {
       const v: ArrayLike<number> = (valueObj as any).getValue();
       let pos = 0;
       do {
-        const maxLen = v[pos];
-        const actLen = v[pos + 1];
+        const maxLen = byteAt(v, pos);
+        const actLen = byteAt(v, pos + 1);
         // IEC 61131-3 states ISO-646 IRV, with optional extensions like "Latin-1 Supplement".
         // Siemens TIA-Portal gives warnings using other than 7 Bit ASCII characters.
         // Let the user define his local encoding via SetStringEncoding().

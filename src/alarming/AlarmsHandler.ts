@@ -142,7 +142,7 @@ export class AlarmsHandler {
           " PLC-Timestamp=" + noti.add1Timestamp.toISOString() + "." + String(noti.add1Timestamp.getUTCMilliseconds()).padStart(3, "0"),
         );
 
-        const dai = AlarmsDai.fromNotificationObject(noti.p2Objects[0], alarmTextsLanguageId);
+        const dai = AlarmsDai.fromNotificationObject(noti.p2Objects![0], alarmTextsLanguageId);
         console.log(String(dai));
         if (noti.notificationCreditTick >= this.alarmNextCreditLimit - 1) {
           // Set new limit one tick before it expires, to get a constant flow of data

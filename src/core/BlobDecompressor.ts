@@ -1621,6 +1621,9 @@ export class BlobDecompressor {
    * @returns The decompressed blob as string. If decompression failed, the string is empty
    */
   decompress(compressedBlob: Uint8Array, startoffset: number): string {
+    // The C# original sets avail_in = compressed_blob.Length although inflating starts at `startoffset`, so it reads past
+    // the end of the array (IndexOutOfRangeException) when the offset is beyond the data or when the stream is truncated.
+    if (compressedBlob.length > 0 && startoffset >= compressedBlob.length) throw new RangeError("Index was outside the bounds of the array.");
     const data = compressedBlob.subarray(startoffset);
     let dict: Uint8Array | undefined;
     // zlib header: CMF, FLG, [DICTID (adler32 of dictionary, big endian) if FLG.FDICT]
@@ -1636,6 +1639,9 @@ export class BlobDecompressor {
       const out = dict ? inflateSync(data, { dictionary: dict }) : inflateSync(data);
       return new TextDecoder("utf-8").decode(out);
     } catch (e) {
+      if (startoffset > 0 && (e as NodeJS.ErrnoException).code === "Z_BUF_ERROR") {
+        throw new RangeError("Index was outside the bounds of the array."); // truncated stream, see above
+      }
       console.log(`BlobDecompressor: Blob decompression failed! ${(e as Error).message}`);
       return "";
     }

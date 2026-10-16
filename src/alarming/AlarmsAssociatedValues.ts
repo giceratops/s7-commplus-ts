@@ -5,6 +5,7 @@
  * Ported to TypeScript.
  */
 
+import { doubleToString } from "../core/NetCompat.js";
 import { Ids } from "../core/Ids.js";
 import { ValueBlobArray } from "../core/PValue.js";
 import { Utils } from "../core/Utils.js";
@@ -234,7 +235,7 @@ export class AssociatedValue {
         break;
       case Ids.TI_REAL:
       case Ids.TI_LREAL:
-        s = this.valueReal.toString();
+        s = doubleToString(this.valueReal);
         break;
       case Ids.TI_CHAR:
       case Ids.TI_WCHAR:

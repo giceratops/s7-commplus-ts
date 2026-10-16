@@ -28,7 +28,7 @@ export class SystemEvent {
   isData = false;
   data: PValue | null = null;
   isMessage = false;
-  message = "";
+  message: string | null = null;
 
   protocolVersion: number;
 
@@ -97,7 +97,7 @@ export class SystemEvent {
       s += "<Message></Message>" + NL;
     } else if (this.isMessage) {
       s += "<Data></Data>" + NL;
-      s += "<Message>" + this.message + "</Message>" + NL;
+      s += "<Message>" + (this.message ?? "") + "</Message>" + NL;
     } else {
       s += "<Data></Data>" + NL;
       s += "<Message></Message>" + NL;

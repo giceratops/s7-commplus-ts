@@ -4,6 +4,7 @@
  * Licensed under the GNU Lesser General Public License v3 or later.
  * Ported to TypeScript.
  */
+import { dictAdd } from "./NetCompat.js";
 import { ByteStream } from "./ByteStream.js";
 import { Functioncode } from "./Functioncode.js";
 import { Opcode } from "./Opcode.js";
@@ -43,14 +44,14 @@ export class GetMultiVariablesResponse {
     itemnr = S7p.decodeUInt32Vlq(buffer);
     while (itemnr > 0) {
       const v = PValue.deserialize(buffer)!;
-      this.values.set(itemnr, v);
+      dictAdd(this.values, itemnr, v);
       itemnr = S7p.decodeUInt32Vlq(buffer);
     }
     // ErrorvalueList
     itemnr = S7p.decodeUInt32Vlq(buffer);
     while (itemnr > 0) {
       const retval = S7p.decodeUInt64Vlq(buffer);
-      this.errorValues.set(itemnr, retval);
+      dictAdd(this.errorValues, itemnr, retval);
       itemnr = S7p.decodeUInt32Vlq(buffer);
     }
     this.integrityId = S7p.decodeUInt32Vlq(buffer);

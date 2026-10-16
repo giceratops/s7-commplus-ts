@@ -56,7 +56,7 @@ export class DeleteObjectResponse {
     s += "<ReturnValue>" + this.returnValue.toString() + "</ReturnValue>" + "\n";
     s += "<DeleteObjectId>" + this.deleteObjectId.toString() + "</DeleteObjectId>" + "\n";
     s += "</ResponseSet>" + "\n";
-    s += "<WithIntegrityId>" + this.withIntegrityId ? "True" : "False" + "</WithIntegrityId>" + "\n";
+    s += "<WithIntegrityId>" + (this.withIntegrityId ? "True" : "False") + "</WithIntegrityId>" + "\n";
     s += "<IntegrityId>" + this.integrityId.toString() + "</IntegrityId>" + "\n";
     s += "</DeleteObjectResponse>" + "\n";
     return s;

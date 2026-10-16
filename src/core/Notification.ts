@@ -3,11 +3,13 @@
  * Licensed under the GNU Lesser General Public License v3 or later.
  * Ported to TypeScript.
  */
+import { dictAdd } from "./NetCompat.js";
 import type { ByteStream } from "./ByteStream.js";
 import { Opcode } from "./Opcode.js";
 import type { PObject } from "./PObject.js";
 import { PValue } from "./PValue.js";
 import { S7p } from "./S7p.js";
+import { utcDateTimeToString } from "./NetCompat.js";
 
 const NL = "\n";
 
@@ -37,7 +39,7 @@ export class Notification {
   p2SubscriptionObjectId = 0; // for alarm object
   p2Unknown1 = 0; // for alarm object
   p2ReturnValue = 0; // for alarm object
-  p2Objects: PObject[] = []; // for alarm object
+  p2Objects: PObject[] | null = null; // for alarm object (C#: null unless the notification carries alarm objects)
 
   constructor(protocolVersion: number) {
     this.protocolVersion = protocolVersion;
@@ -105,7 +107,7 @@ export class Notification {
         case 0x03:
           itemref = S7p.decodeUInt32(buffer);
           if (this.returnValues.has(itemref)) throw new Error("An item with the same key has already been added.");
-          this.returnValues.set(itemref, itemReturnValue);
+          dictAdd(this.returnValues, itemref, itemReturnValue);
           break;
         //case 0x81: //Only in protocol version v1, but also used in S7-1500 in part 2 for ProgramAlarm
         case 0x83:
@@ -144,9 +146,8 @@ export class Notification {
 
   toString(): string {
     const d = this.add1Timestamp;
-    const ts =
-      `${d.getUTCFullYear().toString().padStart(4, "0")}-${pad(d.getUTCMonth() + 1, 2)}-${pad(d.getUTCDate(), 2)} ` +
-      `${pad(d.getUTCHours(), 2)}:${pad(d.getUTCMinutes(), 2)}:${pad(d.getUTCSeconds(), 2)}.${pad(d.getUTCMilliseconds(), 3)} UTC`;
+    // String.Format("{0}.{1:D03} UTC", Add1Timestamp.ToString(), Add1Timestamp.Millisecond)
+    const ts = `${utcDateTimeToString(d)}.${pad(d.getUTCMilliseconds(), 3)} UTC`;
     let s = "";
     s += "<Notification>" + NL;
     s += "<ProtocolVersion>" + this.protocolVersion.toString() + "</ProtocolVersion>" + NL;
@@ -181,7 +182,7 @@ export class Notification {
     s += "<P2Unknown1>" + this.p2Unknown1.toString() + "</P2Unknown1>" + NL;
     s += "<P2ReturnValue>" + this.p2ReturnValue.toString() + "</P2ReturnValue>" + NL;
     s += "<P2Objects>" + NL;
-    for (const p2o of this.p2Objects) {
+    for (const p2o of this.p2Objects!) { // (C# throws NullReferenceException here when P2Objects is null)
       s += p2o.toString();
     }
     s += "</P2Objects>" + NL;

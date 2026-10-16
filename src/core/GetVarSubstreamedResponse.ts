@@ -16,7 +16,8 @@ export class GetVarSubstreamedResponse {
   value: PValue | null = null;
   protocolVersion = 0;
   get functionCode(): number {
-    return Functioncode.GetVarSubStreamed;
+    // (sic) the C# original returns Functioncode.SetVariable here (copy/paste slip); kept for parity.
+    return Functioncode.SetVariable;
   }
   sequenceNumber = 0;
   integrityId = 0;

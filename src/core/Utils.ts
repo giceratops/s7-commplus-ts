@@ -72,43 +72,58 @@ export class Utils {
     return BigInt.asUintN(64, value);
   }
 
+  /** Emulates C# array bounds checking (IndexOutOfRangeException) for reads of `n` bytes at `pos` */
+  private static chk(array: Uint8Array, pos: number, n: number): void {
+    if (pos < 0 || pos + n > array.length) throw new RangeError("Index was outside the bounds of the array.");
+  }
+
   static getUInt8(array: Uint8Array, pos: number): number {
+    Utils.chk(array, pos, 1);
     return array[pos];
   }
 
   static getUInt16LE(array: Uint8Array, pos: number): number {
+    Utils.chk(array, pos, 2);
     return array[pos + 1] * 256 + array[pos];
   }
 
   static getUInt16(array: Uint8Array, pos: number): number {
+    Utils.chk(array, pos, 2);
     return array[pos] * 256 + array[pos + 1];
   }
 
   static getInt16(array: Uint8Array, pos: number): number {
+    Utils.chk(array, pos, 2);
     return (((array[pos] << 8) | array[pos + 1]) << 16) >> 16;
   }
 
   static getUInt32LE(array: Uint8Array, pos: number): number {
+    Utils.chk(array, pos, 4);
     return array[pos + 3] * 16777216 + array[pos + 2] * 65536 + array[pos + 1] * 256 + array[pos];
   }
 
   static getUInt32(array: Uint8Array, pos: number): number {
+    Utils.chk(array, pos, 4);
     return array[pos] * 16777216 + array[pos + 1] * 65536 + array[pos + 2] * 256 + array[pos + 3];
   }
 
   static getInt32(array: Uint8Array, pos: number): number {
+    Utils.chk(array, pos, 4);
     return (array[pos] << 24) | (array[pos + 1] << 16) | (array[pos + 2] << 8) | array[pos + 3];
   }
 
   static getFloat(array: Uint8Array, pos: number): number {
+    Utils.chk(array, pos, 4);
     return new DataView(array.buffer, array.byteOffset + pos, 4).getFloat32(0, false);
   }
 
   static getDouble(array: Uint8Array, pos: number): number {
+    Utils.chk(array, pos, 8);
     return new DataView(array.buffer, array.byteOffset + pos, 8).getFloat64(0, false);
   }
 
   static getUtfString(array: Uint8Array, pos: number, len: number): string {
+    Utils.chk(array, pos, len); // (C#: ArgumentOutOfRangeException)
     return new TextDecoder("utf-8").decode(array.subarray(pos, pos + len));
   }
 }

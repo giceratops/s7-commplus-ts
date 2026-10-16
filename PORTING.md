@@ -27,3 +27,11 @@ ClientApi->clientapi, Subscriptions->subscriptions). File name = C# class name (
 - Strings: UTF-8 via TextDecoder/TextEncoder (or Buffer). 
 - Typecheck with `npx tsc --noEmit` from the project root. Other modules are being ported concurrently by other agents: import from
   them by the agreed path/name (e.g. `import { PValue } from "./PValue.js"`) even if the file is not there yet; do NOT create/modify files outside your assignment.
+
+## Differential testing against the C# driver
+
+`tools/golden-gen` (C#, .NET 8) compiles the original pure-protocol sources unmodified and emits golden vectors to
+`test/golden.json.gz` (serialization of every PValue/request/tag type, canned PDU decoding, fuzzed corrupt input, ...);
+`test/golden.test.ts` replays the same specs against the port and requires byte-identical output / identical decoded
+fields / identical "throws". See `tools/golden-gen/README.md` for regeneration and the list of documented deviations.
+Helpers that emulate .NET behaviour (float/double/DateTime formatting, `Dictionary.Add`) live in `src/core/NetCompat.ts`.
